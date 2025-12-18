@@ -1,0 +1,1969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Danyal Khorami - MFA Media Arts, Computer Vision, IoT. Research portfolio for PhD applications.">
+    <title>Danyal Khorami | Media Arts + Computer Vision Research</title>
+    
+    <style>
+        :root {
+            --primary: #1e40af;
+            --secondary: #2563eb;
+            --accent-purple: #4f46e5;
+            --accent-teal: #0369a1;
+            --accent-warm: #d97706;
+            --dark-bg: #ffffff;
+            --dark-surface: #fafbfc;
+            --dark-border: #e5e7eb;
+            --text-primary: #111827;
+            --text-secondary: #4b5563;
+            --text-muted: #6b7280;
+            --success: #059669;
+            --warning: #d97706;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ======================== PARTICLE BACKGROUND ======================== */
+        .particle-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom right, #ffffff 0%, #f0f4f9 50%, #e8eef7 100%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        canvas#particleCanvas {
+            display: block;
+            opacity: 0.08;
+        }
+
+        /* ======================== NAVIGATION ======================== */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #e5e7eb;
+            padding: 1.2rem 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #111827;
+            text-decoration: none;
+            letter-spacing: -0.3px;
+            font-family: 'Georgia', serif;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #2563eb, #1e40af);
+            transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .nav-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 6px;
+            background: #f3f4f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: #111827;
+        }
+
+        .nav-icon:hover {
+            background: #e5e7eb;
+            transform: scale(1.05);
+        }
+
+        /* ======================== HERO SECTION ======================== */
+        .hero {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6rem 2rem 2rem;
+            text-align: center;
+            background: radial-gradient(ellipse at center, rgba(30, 64, 175, 0.02) 0%, transparent 70%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 2rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+            padding: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: float 3s ease-in-out infinite;
+            box-shadow: 0 0 40px rgba(37, 99, 235, 0.2), inset 0 0 40px rgba(37, 99, 235, 0.1);
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            background: var(--dark-surface);
+            display: block;
+        }
+
+        h1 {
+            font-size: 3.8rem;
+            font-weight: 800;
+            margin-bottom: 0.8rem;
+            color: #111827;
+            letter-spacing: -1.2px;
+            animation: fadeInUp 1s ease-out 0.1s both;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease-out 0.2s both;
+            font-weight: 500;
+        }
+
+        .hero-description {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            max-width: 680px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+            animation: fadeInUp 1s ease-out 0.3s both;
+            letter-spacing: 0.3px;
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            background: rgba(37, 99, 235, 0.08);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary);
+            transition: all 0.3s;
+        }
+
+        .badge:hover {
+            background: rgba(37, 99, 235, 0.15);
+            border-color: rgba(37, 99, 235, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .badge.research {
+            color: var(--accent-purple);
+            background: rgba(139, 92, 246, 0.08);
+            border-color: rgba(139, 92, 246, 0.2);
+        }
+
+        .badge.research:hover {
+            background: rgba(139, 92, 246, 0.15);
+            border-color: rgba(139, 92, 246, 0.4);
+        }
+
+        .badge.artistic {
+            color: var(--accent-warm);
+            background: rgba(249, 115, 22, 0.08);
+            border-color: rgba(249, 115, 22, 0.2);
+        }
+
+        .badge.artistic:hover {
+            background: rgba(249, 115, 22, 0.15);
+            border-color: rgba(249, 115, 22, 0.4);
+        }
+
+        .badge.hardware {
+            color: var(--accent-teal);
+            background: rgba(20, 184, 166, 0.08);
+            border-color: rgba(20, 184, 166, 0.2);
+        }
+
+        .badge.hardware:hover {
+            background: rgba(20, 184, 166, 0.15);
+            border-color: rgba(20, 184, 166, 0.4);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            animation: fadeInUp 1s ease-out 0.5s both;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.9rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: #1e40af;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            background: #1e3a8a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(30, 64, 175, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1.5px solid #d1d5db;
+            color: var(--text-primary);
+        }
+
+        .btn-secondary:hover {
+            background: #f9fafb;
+            border-color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+
+        /* ======================== CONTENT SECTIONS ======================== */
+        .section {
+            position: relative;
+            z-index: 1;
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: #111827;
+            letter-spacing: -0.8px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 3.5rem;
+            font-weight: 400;
+            letter-spacing: 0.2px;
+        }
+
+        /* ======================== ABOUT SECTION ======================== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            align-items: start;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .about-text strong {
+            color: var(--primary);
+        }
+
+        .achievement-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .achievement {
+            padding: 1.5rem;
+            background: rgba(37, 99, 235, 0.05);
+            border-left: 3px solid var(--primary);
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+
+        .achievement:hover {
+            background: rgba(37, 99, 235, 0.1);
+            transform: translateX(5px);
+        }
+
+        .achievement h4 {
+            color: var(--primary);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .achievement p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            padding: 1.5rem;
+            background: #ffffff;
+            border: 1px solid var(--dark-border);
+            border-radius: 8px;
+            transition: all 0.3s;
+            box-shadow: 0 1px 3px rgba(37, 99, 235, 0.08);
+        }
+
+        .skill-category:hover {
+            border-color: var(--primary);
+            background: #f0f9ff;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.12);
+        }
+
+        .skill-category h3 {
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            color: var(--accent-purple);
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            transition: all 0.2s;
+        }
+
+        .skill-tag:hover {
+            background: rgba(139, 92, 246, 0.2);
+            border-color: rgba(139, 92, 246, 0.4);
+        }
+
+        /* ======================== PROJECTS SECTION ======================== */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: #ffffff;
+            border: 1px solid #f0f0f0;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.04), rgba(3, 105, 161, 0.04));
+            opacity: 0;
+            transition: opacity 0.35s;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .project-card:hover {
+            border-color: #d1d5db;
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #f0f4f9, #e8eef7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: rgba(30, 64, 175, 0.15);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            z-index: 2;
+            position: relative;
+        }
+
+        .project-type {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.3rem 0.7rem;
+            background: rgba(0, 217, 255, 0.1);
+            color: var(--primary);
+            border-radius: 4px;
+            margin-bottom: 0.8rem;
+            width: fit-content;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .project-type.research {
+            background: rgba(139, 92, 246, 0.1);
+            color: var(--accent-purple);
+        }
+
+        .project-type.artistic {
+            background: rgba(249, 115, 22, 0.1);
+            color: var(--accent-warm);
+        }
+
+        .project-type.hardware {
+            background: rgba(20, 184, 166, 0.1);
+            color: var(--accent-teal);
+        }
+
+        .project-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: var(--text-primary);
+            letter-spacing: -0.2px;
+        }
+
+        .project-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            flex: 1;
+        }
+
+        .tech-stack {
+            display: flex;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .tech-badge {
+            font-size: 0.75rem;
+            padding: 0.3rem 0.6rem;
+            background: rgba(139, 92, 246, 0.12);
+            color: var(--accent-purple);
+            border-radius: 3px;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+        }
+
+        .tech-badge.cv {
+            background: rgba(20, 184, 166, 0.12);
+            color: var(--accent-teal);
+            border-color: rgba(20, 184, 166, 0.2);
+        }
+
+        .tech-badge.ml {
+            background: rgba(139, 92, 246, 0.12);
+            color: var(--accent-purple);
+            border-color: rgba(139, 92, 246, 0.2);
+        }
+
+        .tech-badge.embedded {
+            background: rgba(249, 115, 22, 0.12);
+            color: var(--accent-warm);
+            border-color: rgba(249, 115, 22, 0.2);
+        }
+
+        .tech-badge.art {
+            background: rgba(249, 115, 22, 0.12);
+            color: var(--accent-warm);
+            border-color: rgba(249, 115, 22, 0.2);
+        }
+
+        .project-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--success);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--success);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        /* ======================== MODAL ======================== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideUp 0.3s ease-out;
+            position: relative;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 40px;
+            height: 40px;
+            background: #f3f4f6;
+            border: none;
+            border-radius: 6px;
+            color: #111827;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+
+        .modal-close:hover {
+            background: #e5e7eb;
+            transform: rotate(90deg);
+        }
+
+        .modal-header {
+            padding: 2rem;
+            border-bottom: 1px solid var(--dark-border);
+        }
+
+        .modal-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: #111827;
+            letter-spacing: -0.5px;
+        }
+
+        .modal-subtitle {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .modal-body {
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 2rem;
+        }
+
+        .modal-gallery {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 300px;
+            background: rgba(37, 99, 235, 0.05);
+            border: 1px solid var(--dark-border);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(37, 99, 235, 0.3);
+            font-size: 4rem;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .gallery-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-description {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .sidebar-section {
+            padding: 1rem;
+            background: rgba(37, 99, 235, 0.05);
+            border: 1px solid rgba(37, 99, 235, 0.1);
+            border-radius: 8px;
+        }
+
+        .sidebar-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.8rem;
+        }
+
+        .sidebar-item {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .sidebar-icon {
+            width: 18px;
+            height: 18px;
+            background: rgba(0, 217, 255, 0.2);
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            color: var(--primary);
+        }
+
+        .modal-links {
+            display: flex;
+            gap: 0.8rem;
+            flex-direction: column;
+        }
+
+        .modal-link {
+            padding: 0.8rem;
+            background: rgba(0, 217, 255, 0.1);
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .modal-link:hover {
+            background: rgba(0, 217, 255, 0.2);
+            border-color: rgba(0, 217, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .modal-body {
+                grid-template-columns: 1fr;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ======================== EDUCATION SECTION ======================== */
+        .education-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .education-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, #2563eb, #1e40af);
+        }
+
+        .edu-item {
+            position: relative;
+            padding: 1.5rem;
+            background: #ffffff;
+            border: 1px solid var(--dark-border);
+            border-radius: 8px;
+            transition: all 0.3s;
+            box-shadow: 0 1px 3px rgba(37, 99, 235, 0.08);
+        }
+
+        .edu-item::before {
+            content: '';
+            position: absolute;
+            left: -3.5rem;
+            top: 1.8rem;
+            width: 12px;
+            height: 12px;
+            background: var(--primary);
+            border: 3px solid #ffffff;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .edu-item:hover {
+            background: #f0f9ff;
+            border-color: var(--primary);
+            transform: translateX(10px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.12);
+        }
+
+        .edu-item:hover::before {
+            width: 18px;
+            height: 18px;
+            left: -4rem;
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.5);
+        }
+
+        .edu-degree {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .edu-school {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .edu-year {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .edu-detail {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* ======================== EXHIBITIONS SECTION ======================== */
+        .exhibitions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .exhibition-card {
+            padding: 1.5rem;
+            background: #ffffff;
+            border: 1px solid var(--dark-border);
+            border-radius: 8px;
+            transition: all 0.3s;
+            border-left: 3px solid transparent;
+            box-shadow: 0 1px 3px rgba(37, 99, 235, 0.08);
+        }
+
+        .exhibition-card:hover {
+            background: #f0f9ff;
+            border-color: var(--primary);
+            border-left-color: var(--secondary);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.12);
+        }
+
+        .exhibition-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .exhibition-venue {
+            color: var(--primary);
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .exhibition-year {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* ======================== CONTACT SECTION ======================== */
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-text {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .contact-link:hover {
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 6px;
+            background: #f3f4f6;
+            border: 1px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #111827;
+            font-size: 1.2rem;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: #1e40af;
+            border-color: #1e40af;
+            color: #ffffff;
+            transform: translateY(-3px);
+        }
+
+        /* ======================== FOOTER ======================== */
+        footer {
+            position: relative;
+            z-index: 1;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid #e5e7eb;
+            background: #ffffff;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        /* ======================== ANIMATIONS ======================== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* ======================== MOBILE RESPONSIVE ======================== */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section {
+                padding: 3rem 1.5rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-body {
+                grid-template-columns: 1fr;
+            }
+
+            .education-timeline {
+                padding-left: 2rem;
+            }
+
+            .edu-item::before {
+                left: -2.5rem;
+            }
+
+            .edu-item:hover::before {
+                left: -3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav ul {
+                display: none;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .hero {
+                padding: 5rem 1rem 1rem;
+                min-height: auto;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Particle Background -->
+    <div class="particle-bg">
+        <canvas id="particleCanvas"></canvas>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="#home" class="logo">DK</a>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-icon" onclick="toggleMobileMenu()">☰</div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="profile-img">
+                <!-- PROFILE IMAGE: Replace 'src' with your circular profile photo URL (200x200px recommended) -->
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='100' fill='%231e293b'/%3E%3Ctext x='100' y='120' font-size='40' fill='%2300d9ff' text-anchor='middle' font-family='sans-serif' font-weight='bold'%3EDK%3C/text%3E%3C/svg%3E" alt="Danyal Khorami">
+            </div>
+            <h1>Danyal Khorami</h1>
+            <p class="hero-subtitle">Media Arts + Computer Vision Researcher</p>
+            <p class="hero-description">
+                MFA Media Arts at ASU | Motion Capture, Deep Learning, IoT Hardware | Artist & Technologist exploring embodied AI, temporal perception, and computational media. PhD candidate preparing for research-intensive doctoral programs.
+            </p>
+            <div class="hero-badges">
+                <span class="badge research">🔬 Research-Focused</span>
+                <span class="badge artistic">🎨 Artistic Practice</span>
+                <span class="badge hardware">⚙️ Hardware Design</span>
+            </div>
+            <div class="cta-buttons">
+                <button class="btn btn-primary" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">View My Work</button>
+                <a href="https://danyalkhorami.com" class="btn btn-secondary" target="_blank">Full Website →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <h2 class="section-title">About</h2>
+        <p class="section-subtitle">Research interests & technical background</p>
+        
+        <div class="about-grid">
+            <div class="about-text">
+                <p>
+                    I'm an <strong>interdisciplinary researcher</strong> bridging computational media, computer vision, and artistic practice. My work explores how technology can expand human perception and embodiment through motion capture systems, deep learning, and sensor fusion.
+                </p>
+                <p>
+                    Currently pursuing an <strong>MFA in Interdisciplinary Media Arts</strong> at Arizona State University, with deep technical training in computer vision, embedded systems, and GPU-accelerated machine learning. I'm preparing for PhD programs where I can deepen research in <strong>temporal perception models, embodied AI, and XR technologies</strong>.
+                </p>
+                <p>
+                    My practice spans open-source hardware development (Mesquite MoCap), large-scale installations merging IoT and LLMs (To Wilt), and rigorous computational work on GPU clusters. I believe the future of media arts lies in rigorous technical depth combined with artistic vision.
+                </p>
+            </div>
+
+            <div class="achievement-timeline">
+                <div class="achievement">
+                    <h4>🏆 National Recognition</h4>
+                    <p>Ranked 19th among ~54,000 candidates in National M.A. Entrance Exam (Iran, 2019) — full tuition waiver</p>
+                </div>
+                <div class="achievement">
+                    <h4>🎨 Anderson Ranch Fellowship</h4>
+                    <p>Anderson Ranch Arts Center Residency (2024) — selective artist residency in Colorado</p>
+                </div>
+                <div class="achievement">
+                    <h4>📚 Teaching & Mentorship</h4>
+                    <p>Instructor of Record for Photography & Digital Media; TA at Northlight Gallery (ASU)</p>
+                </div>
+                <div class="achievement">
+                    <h4>🗣️ Conference Speaker</h4>
+                    <p>Accepted speaker for IndiaFOSS 2025 — presenting open-source motion capture research</p>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="section-subtitle" style="margin-top: 3rem;">Technical Skills & Research Focus</h3>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>🧠 Machine Learning</h3>
+                <span class="skill-tag">PyTorch</span>
+                <span class="skill-tag">Deep Learning</span>
+                <span class="skill-tag">Computer Vision</span>
+                <span class="skill-tag">Vision Transformer</span>
+                <span class="skill-tag">GANs & Diffusion</span>
+                <span class="skill-tag">Temporal Models</span>
+            </div>
+            <div class="skill-category">
+                <h3>🖥️ Software Engineering</h3>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">OpenCV</span>
+                <span class="skill-tag">CUDA/GPU</span>
+                <span class="skill-tag">Linux/HPC</span>
+                <span class="skill-tag">Git/GitHub</span>
+            </div>
+            <div class="skill-category">
+                <h3>⚙️ Embedded Systems</h3>
+                <span class="skill-tag">ESP32/Arduino</span>
+                <span class="skill-tag">IoT Hardware</span>
+                <span class="skill-tag">Sensor Fusion</span>
+                <span class="skill-tag">Real-time Systems</span>
+                <span class="skill-tag">Firmware Dev</span>
+                <span class="skill-tag">MongoDB</span>
+            </div>
+            <div class="skill-category">
+                <h3>🎨 Creative Tools</h3>
+                <span class="skill-tag">Blender</span>
+                <span class="skill-tag">Motion Capture</span>
+                <span class="skill-tag">3D Reconstruction</span>
+                <span class="skill-tag">Photography</span>
+                <span class="skill-tag">XR/VR</span>
+                <span class="skill-tag">Installation Art</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <h2 class="section-title">Research & Projects</h2>
+        <p class="section-subtitle">Technical depth meets artistic vision</p>
+        
+        <div class="projects-grid">
+            <!-- Project 1: Mesquite MoCap -->
+            <div class="project-card" onclick="openModal(0)">
+                <div class="project-image">🎯</div>
+                <div class="project-content">
+                    <span class="project-type research">Research</span>
+                    <h3 class="project-title">Mesquite MoCap</h3>
+                    <p class="project-desc">Open-source real-time motion capture system using 15 wireless ESP32 IMU nodes for full-body capture at 32 FPS with 15ms latency.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge embedded">ESP32</span>
+                        <span class="tech-badge cv">Motion Capture</span>
+                        <span class="tech-badge">Hardware</span>
+                    </div>
+                    <p class="project-status">
+                        <span class="status-dot"></span> IEEE Paper Under Review
+                    </p>
+                </div>
+            </div>
+
+            <!-- Project 2: Multi-Phone 3D Rig -->
+            <div class="project-card" onclick="openModal(1)">
+                <div class="project-image">📱</div>
+                <div class="project-content">
+                    <span class="project-type research">Research</span>
+                    <h3 class="project-title">Multi-Phone 3D Rig</h3>
+                    <p class="project-desc">Multi-view 3D capture system using synchronized Android phones for scalable, accessible human motion and XR asset creation.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge cv">3D Reconstruction</span>
+                        <span class="tech-badge ml">Computer Vision</span>
+                        <span class="tech-badge">Calibration</span>
+                    </div>
+                    <p class="project-status">
+                        <span class="status-dot"></span> In Development
+                    </p>
+                </div>
+            </div>
+
+            <!-- Project 3: To Wilt -->
+            <div class="project-card" onclick="openModal(2)">
+                <div class="project-image">🌹</div>
+                <div class="project-content">
+                    <span class="project-type artistic">Artistic</span>
+                    <h3 class="project-title">To Wilt</h3>
+                    <p class="project-desc">MFA thesis: 4-space installation exploring emotion & perception through LLM dialogue, sensor fusion, and temporal transformation.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge art">Installation Art</span>
+                        <span class="tech-badge ml">LLMs</span>
+                        <span class="tech-badge embedded">Sensors</span>
+                    </div>
+                    <p class="project-status">
+                        <span class="status-dot"></span> Exhibiting Spring 2026
+                    </p>
+                </div>
+            </div>
+
+            <!-- Project 4: Happenstance -->
+            <div class="project-card" onclick="openModal(3)">
+                <div class="project-image">👤</div>
+                <div class="project-content">
+                    <span class="project-type research">Research</span>
+                    <h3 class="project-title">Happenstance</h3>
+                    <p class="project-desc">Image-to-avatar pipeline combining PiFUHD 3D digitization with Blender rigging for rapid XR character creation from single photos.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge ml">Deep Learning</span>
+                        <span class="tech-badge">Blender</span>
+                        <span class="tech-badge cv">3D</span>
+                    </div>
+                    <p class="project-status">
+                        <span class="status-dot"></span> Active Development
+                    </p>
+                </div>
+            </div>
+
+            <!-- Project 5: Opuntia -->
+            <div class="project-card" onclick="openModal(4)">
+                <div class="project-image">🌵</div>
+                <div class="project-content">
+                    <span class="project-type hardware">Hardware</span>
+                    <h3 class="project-title">Opuntia</h3>
+                    <p class="project-desc">Solar-powered IoT environmental sensor station with multi-sensor fusion, MongoDB logging, and real-time telemetry for climate monitoring.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge embedded">ESP32-C3</span>
+                        <span class="tech-badge">MongoDB</span>
+                        <span class="tech-badge">IoT</span>
+                    </div>
+                    <p class="project-status">
+                        <span class="status-dot"></span> Deployed
+                    </p>
+                </div>
+            </div>
+
+            <!-- Project 6: Deep Learning Coursework -->
+            <div class="project-card" onclick="openModal(5)">
+                <div class="project-image">🧠</div>
+                <div class="project-content">
+                    <span class="project-type research">Research</span>
+                    <h3 class="project-title">Deep Learning Coursework</h3>
+                    <p class="project-desc">GPU-accelerated projects: Vision Transformers, GANs, diffusion models, custom architectures on NVIDIA A100 clusters via HPC.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge ml">PyTorch</span>
+                        <span class="tech-badge ml">CUDA</span>
+                        <span class="tech-badge">A100</span>
+                    </div>
+                    <p class="project-status">
+                        <span class="status-dot"></span> EEE 598 Completed
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <h2 class="section-title">Education & Exhibitions</h2>
+        <p class="section-subtitle">Formal training & professional exhibitions</p>
+        
+        <h3 style="color: var(--primary); margin: 2rem 0 1.5rem; font-size: 1.3rem;">Degrees</h3>
+        <div class="education-timeline">
+            <div class="edu-item">
+                <div class="edu-degree">MFA, Interdisciplinary Media Arts</div>
+                <div class="edu-school">Arizona State University, Tempe</div>
+                <div class="edu-year">Expected May 2026</div>
+                <div class="edu-detail">Coursework: Deep Learning, Computer Vision, Ray Tracing, IoT, Advanced Graphics</div>
+            </div>
+            <div class="edu-item">
+                <div class="edu-degree">M.A., Photography & Media Image Theory</div>
+                <div class="edu-school">Tehran University of Art, Iran</div>
+                <div class="edu-year">2023 | GPA: 3.98</div>
+                <div class="edu-detail">Ranked 19th among 54,000 national exam candidates (2019) — full tuition award</div>
+            </div>
+            <div class="edu-item">
+                <div class="edu-degree">B.A., Graphic Design</div>
+                <div class="edu-school">University of Applied Science & Technology, Arak</div>
+                <div class="edu-year">2020 | GPA: 3.86</div>
+            </div>
+        </div>
+
+        <h3 style="color: var(--primary); margin: 3rem 0 1.5rem; font-size: 1.3rem;">Selected Exhibitions & Events</h3>
+        <div class="exhibitions-grid">
+            <div class="exhibition-card">
+                <div class="exhibition-title">Smile You Are on Camera</div>
+                <div class="exhibition-venue">Northlight Gallery, Phoenix</div>
+                <div class="exhibition-year">2025</div>
+            </div>
+            <div class="exhibition-card">
+                <div class="exhibition-title">SPE Northwest Conference</div>
+                <div class="exhibition-venue">Mt. Hood Community College, Oregon</div>
+                <div class="exhibition-year">2024</div>
+            </div>
+            <div class="exhibition-card">
+                <div class="exhibition-title">Phoenix Transect</div>
+                <div class="exhibition-venue">Northlight Gallery, Phoenix</div>
+                <div class="exhibition-year">2024</div>
+            </div>
+            <div class="exhibition-card">
+                <div class="exhibition-title">Fieldnotes</div>
+                <div class="exhibition-venue">Harry Wood Gallery, Tempe</div>
+                <div class="exhibition-year">May-Aug 2024</div>
+            </div>
+            <div class="exhibition-card">
+                <div class="exhibition-title">Galbirt Prize Exhibition</div>
+                <div class="exhibition-venue">Gallery 100, Phoenix</div>
+                <div class="exhibition-year">2024</div>
+            </div>
+            <div class="exhibition-card">
+                <div class="exhibition-title">IndiaFOSS 2025 Speaker</div>
+                <div class="exhibition-venue">Conference Presentation</div>
+                <div class="exhibition-year">2025 (Accepted)</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <h2 class="section-title">Let's Connect</h2>
+        <p class="section-subtitle">Opportunities for collaboration & discussion</p>
+        
+        <div class="contact-content">
+            <p class="contact-text">
+                I'm interested in discussing research opportunities, collaborative projects, and PhD program possibilities. Whether you're a researcher, admissions officer, curator, or fellow technologist — I'd love to connect.
+            </p>
+            
+            <div class="contact-links">
+                <!-- CONTACT INFO: Update these with your actual contact details -->
+                <a href="mailto:dkhorami@asu.edu" class="contact-link">
+                    ✉️ dkhorami@asu.edu
+                </a>
+                <a href="tel:+1-602-576-5927" class="contact-link">
+                    📱 (602) 576-5927
+                </a>
+            </div>
+
+            <div class="social-links">
+                <!-- SOCIAL LINKS: Replace # with actual URLs -->
+                <a href="https://linkedin.com/in/danyal-khorami" target="_blank" class="social-link" title="LinkedIn">in</a>
+                <a href="https://github.com/danyalkhorami" target="_blank" class="social-link" title="GitHub">⚙️</a>
+                <a href="https://instagram.com/danyalkhorami" target="_blank" class="social-link" title="Instagram">📷</a>
+                <a href="https://danyalkhorami.com" target="_blank" class="social-link" title="Website">🌐</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Danyal Khorami. Designed for PhD programs & research collaborators. <a href="https://danyalkhorami.com" target="_blank" style="color: var(--primary); text-decoration: none;">Full Portfolio →</a></p>
+    </footer>
+
+    <!-- Project Modals -->
+    <div id="modal-0" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal(0)">✕</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Mesquite MoCap</h2>
+                <p class="modal-subtitle">Open-Source Wearable Motion Capture System</p>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <!-- PROJECT IMAGE 1: Replace with project screenshot -->
+                    <div class="modal-gallery">
+                        <div class="gallery-image">📸</div>
+                        <div class="gallery-image">📸</div>
+                    </div>
+                    <p class="modal-description">
+                        Mesquite MoCap is a real-time, full-body motion capture system built with 15 wireless ESP32-C3 IMU nodes. Designed for accessibility and open-source transparency, it achieves 32 FPS capture rate with 15ms latency and 99.7% packet delivery. The system exports to BVH format and has been benchmarked against OptiTrack (±2.5° joint error).
+                    </p>
+                    <p class="modal-description">
+                        <strong>Technical Highlights:</strong> Arduino/ESP32 firmware with time-synchronized networking, real-time sensor fusion algorithms, WebXR integration for live preview, optimized serial communication for embedded constraints.
+                    </p>
+                </div>
+                <div class="modal-sidebar">
+                    <div class="sidebar-section">
+                        <div class="sidebar-title">Status</div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon">📄</span>
+                            <span>IEEE Manuscript Under Review</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon">🗣️</span>
+                            <span>IndiaFOSS 2025 Speaker</span>
+                        </div>
+                    </div>
+                    <div class="sidebar-section">
+                        <div class="sidebar-title">Technologies</div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon">⚙️</span>
+                            <span>ESP32-C3, IMU Sensors</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon">📡</span>
+                            <span>Real-time Networking</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon">🎯</span>
+                            <span>Sensor Fusion</span>
+                        </div>
+                    </div>
+                    <div class="modal-links">
+                        <a href="https://github.com/danyalkhorami/mesquite-mocap" target="_blank" class="modal-link">GitHub Repository</a>
+                        <a href="https://danyalkhorami.com/mesquite" target="_blank" class="modal-link">Project Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-1" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal(1)">✕</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Multi-Phone 3D Rig</h2>
+                <p class="modal-subtitle">Multi-View Motion Capture with Smartphones</p>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <div class="modal-gallery">
+                        <div class="gallery-image">📱</div>
+                        <div class="gallery-image">📱</div>
+                    </div>
+                    <p class="modal-description">
+                        Developing a scalable multi-view 3D capture system using 4 synchronized Android phones (Samsung S23 class) for accessible human motion capture and XR asset creation. The system performs real-time multi-view calibration, temporal synchronization, and outputs ready-for-VR meshes.
+                    </p>
+                    <p class="modal-description">
+                        <strong>Key Focus:</strong> Low-cost accessibility, precise multi-camera synchronization, robust pose estimation pipelines, rapid mesh reconstruction for real-time XR integration.
+                    </p>
+                </div>
+                <div class="modal-sidebar">
+                    <div class="sidebar-section">
+                        <div class="sidebar-title">Status</div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon">🔄</span>
+                            <span>In Active Development</span>
+                        </div>
+                    </div>
+                    <div class="sidebar-section">
+                        <div class="sidebar-title">Focus Areas</div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon">📐</span>
+                            <span>Multi-view Calibration</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon">⏱️</span>
+                            <span>Temporal Sync</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon">🎬</span>
+                            <span>Pose Estimation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-2" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal(2)">✕</button>
+            <div class="modal-header">
+                <h2 class="modal-title">To Wilt</h2>
+                <p class="modal-subtitle">MFA Thesis Installation: Emotion, LLMs, & Temporal Transformation</p>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <div class="modal-gallery">
+                        <div class="gallery-image">🌹</div>
+                        <div class="gallery-image">🎨</div>
+                    </div>
+                    <p class="modal-description">
+                        "To Wilt" is a research-driven 4-space installation exploring how Large Language Models express, simulate, and question emotion through extended dialogue and sensor-fusion environments. The work challenges anthropomorphic AI assumptions while celebrating human temporal perception.
+                    </p>
+                    <p class="modal-description">
+                        <strong>Spaces:</strong> (1) 8-screen video wall with 3D rose-growth animation + fine-tuned LLM philosophical dialogue, (2) Real-time LLM conversation printed live on networked dot-matrix printers, (3) 22k-image time-lapse decay dataset with LLM analysis, (4) Sensor-instrumented rose tank reflecting emotional decay through environmental metrics.
+                    </p>
+                </div>
+                <div class="modal-sidebar">
+                    <div class="sidebar-section">
+                        <div class="sidebar-title">Status</div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon">🎓</span>
+                            <span>MFA Thesis Exhibition</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon">📅</span>
+                            <span>Exhibiting Spring 2026</span>
+                        </div>
+                    </div>
+                    <div class="sidebar-section">
+                        <div class="sidebar-title">Tools & Methods</div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon">🤖</span>
+                            <span>Fine-tuned LLMs</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon">🎬</span>
+                            <span>Blender Animation</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon">📊</span>
+                            <span>Sensor Fusion</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-3" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal(3)">✕</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Happenstance</h2>
+                <p class="modal-subtitle">Image-to-Avatar Pipeline for Virtual Worlds</p>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <div class="modal-gallery">
+                        <div class="gallery-image">👤</div>
+                        <div class="gallery-image">👤</div>
+                    </div>
+                    <p class="modal-description">
+                        Happenstance is an end-to-end pipeline for converting single human photographs into rigged, animation-ready 3D characters for VR/XR environments. Uses Facebook Research's PiFUHD for high-resolution implicit function-based 3D reconstruction, followed by automated rigging in Mixamo.
+                    </p>
+                    <p class="modal-description">
+                        <strong>Current Development:</strong> Improving mesh quality post-processing, automating Mixamo integration, reducing end-to-end latency for real-time applications, exploring diffusion-based clothing and accessory generation.
+                    </p>
+                </div>
+                <div class="modal-sidebar">
+                    <div class="sidebar-section">
+                        <div class="sidebar-title">Status</div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon">🔄</span>
+                            <span>Active Development</span>
+                        </div>
+                    </div>
+                    <div class="sidebar-section">
+                        <div class="sidebar-title">Technologies</div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon">🧠</span>
+                            <span>PiFUHD</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon">📦</span>
+                            <span>Blender/Mixamo</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon">⚡</span>
+                            <span>Optimization</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-4" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal(4)">✕</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Opuntia</h2>
+                <p class="modal-subtitle">Solar-Powered IoT Environmental Sensor Station</p>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <div class="modal-gallery">
+                        <div class="gallery-image">🌵</div>
+                        <div class="gallery-image">🌄</div>
+                    </div>
+                    <p class="modal-description">
+                        Opuntia is an off-grid environmental monitoring station powered by solar panels and Li-ion battery stack, built with ESP32-C3 microcontroller. The system integrates multi-sensor telemetry (temperature, humidity, pressure, soil moisture) with MongoDB cloud logging and local measurement archiving for microclimate analysis.
+                    </p>
+                    <p class="modal-description">
+                        <strong>Technical Achievement:</strong> Power budget optimization, duty cycling for extended uptime, timestamp integrity during outages, automated backfill protocols, real-time website broadcasting of environmental data streams.
+                    </p>
+                </div>
+                <div class="modal-sidebar">
+                    <div class="sidebar-section">
+                        <div class="sidebar-title">Status</div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon">✅</span>
+                            <span>Deployed & Operating</span>
+                        </div>
+                    </div>
+                    <div class="sidebar-section">
+                        <div class="sidebar-title">Features</div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon">☀️</span>
+                            <span>Solar Powered</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon">📡</span>
+                            <span>MongoDB Logging</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon">📊</span>
+                            <span>Real-time Data</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-5" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal(5)">✕</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Deep Learning Coursework</h2>
+                <p class="modal-subtitle">GPU-Accelerated ML Projects on A100 Clusters</p>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <div class="modal-gallery">
+                        <div class="gallery-image">🧠</div>
+                        <div class="gallery-image">⚡</div>
+                    </div>
+                    <p class="modal-description">
+                        Completed rigorous deep learning coursework (EEE 598: Deep Learning Foundations & Applications) with emphasis on large-scale model training. Projects include Vision Transformers on PV-fault classification, custom ResNet architectures with novel activation functions, GANs and diffusion models with latent interpolation studies, and perceptual loss design using VGG-16 features.
+                    </p>
+                    <p class="modal-description">
+                        <strong>Technical Depth:</strong> Advanced PyTorch, CUDA optimization, multi-GPU training strategies, Grad-CAM visualization, ablation studies, model architecture design from first principles, benchmarking on NVIDIA A100 vs. Intel Habana Gaudi through SLURM HPC workflows.
+                    </p>
+                </div>
+                <div class="modal-sidebar">
+                    <div class="sidebar-section">
+                        <div class="sidebar-title">Status</div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon">✅</span>
+                            <span>Completed</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon">📚</span>
+                            <span>EEE 598</span>
+                        </div>
+                    </div>
+                    <div class="sidebar-section">
+                        <div class="sidebar-title">Models Trained</div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon">🤳</span>
+                            <span>Vision Transformer (ViT)</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon">🎨</span>
+                            <span>GANs & Diffusion</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="sidebar-icon">🧬</span>
+                            <span>Custom ResNets</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // ======================== PARTICLE ANIMATION ========================
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let particles = [];
+        const particleCount = 50;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.radius = Math.random() * 2 + 0.5;
+                this.opacity = Math.random() * 0.5 + 0.3;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0) this.x = canvas.width;
+                if (this.x > canvas.width) this.x = 0;
+                if (this.y < 0) this.y = canvas.height;
+                if (this.y > canvas.height) this.y = 0;
+            }
+
+            draw() {
+                ctx.fillStyle = `rgba(37, 99, 235, ${this.opacity})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        // Initialize particles
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+
+        function drawConnections() {
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 150) {
+                        ctx.strokeStyle = `rgba(37, 99, 235, ${0.08 * (1 - distance / 150)})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+
+            drawConnections();
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        // Resize canvas on window resize
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // ======================== MODAL FUNCTIONS ========================
+        function openModal(index) {
+            const modal = document.getElementById(`modal-${index}`);
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(index) {
+            const modal = document.getElementById(`modal-${index}`);
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on background click
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+
+        // Close on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal.active').forEach(modal => {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+        });
+
+        // ======================== MOBILE MENU ========================
+        function toggleMobileMenu() {
+            const navUl = document.querySelector('nav ul');
+            navUl.style.display = navUl.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        // ======================== SMOOTH SCROLLING ========================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // ======================== SCROLL ANIMATIONS ========================
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = `fadeInUp 0.8s ease-out forwards`;
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.project-card, .achievement, .edu-item, .exhibition-card').forEach(el => {
+            el.style.opacity = '0';
+            observer.observe(el);
+        });
+
+        // ======================== ACTIVE NAV LINK ========================
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.style.color = 'var(--text-secondary)';
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.style.color = 'var(--primary)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
