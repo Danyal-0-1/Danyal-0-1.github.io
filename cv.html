@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en" data-mode="archive">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CV — Danyal Khorami</title>
+  <meta name="description" content="CV and condensed technical + artistic profile." />
+  <link rel="icon" href="assets/img/placeholder.svg" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="topbar">
+    <div class="topbar__inner">
+      <a class="brand" href="index.html" aria-label="Home">
+        <span class="brand__mark" aria-hidden="true"></span>
+        <span class="brand__text">Danyal Khorami</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <button class="nav__toggle" data-nav-toggle aria-expanded="false" aria-controls="navMenu">
+          <span class="nav__toggleIcon" aria-hidden="true"></span>
+          <span class="sr-only">Toggle navigation</span>
+        </button>
+
+        <div id="navMenu" class="nav__menu" data-nav-menu>
+          <a class="nav__link" href="projects.html">Projects</a>
+          <a class="nav__link" href="index.html#research">Research</a>
+          <a class="nav__link" href="index.html#teaching">Teaching</a>
+          <a class="nav__link" href="cv.html" aria-current="page">CV</a>
+          <button class="chip" type="button" data-mode-toggle title="Toggle mode">
+            <span class="chip__dot" aria-hidden="true"></span>
+            <span class="chip__text" data-mode-label>Archive Mode</span>
+          </button>
+        </div>
+      </nav>
+    </div>
+
+    <div class="statusbar" aria-hidden="true">
+      <span class="statusbar__item">DOCUMENT: CV</span>
+      <span class="statusbar__item">TIME: <span data-clock>--:--:--</span></span>
+      <span class="statusbar__item">EXPORT: PDF (optional)</span>
+    </div>
+  </header>
+
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <main id="main" class="main">
+    <section class="section">
+      <div class="section__hdr">
+        <h1 class="h2">CV</h1>
+        <p class="sub">Condensed view for fast scanning. Keep the full PDF in the repo if you want a “download” link.</p>
+      </div>
+
+      <div class="grid">
+        <div class="panel">
+          <div class="panel__hdr">
+            <span class="kicker">SUMMARY</span>
+            <span class="pill pill--muted">scan</span>
+          </div>
+
+          <div id="cvSummary">
+            Loading…
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="ctaRow">
+            <!-- Optional PDF link: put your PDF at /assets/Danyal_Khorami_CV.pdf -->
+            <a class="btn btn--ghost" href="assets/Danyal_Khorami_CV.pdf" target="_blank" rel="noopener">
+              Open PDF (optional)
+            </a>
+            <a class="btn" href="projects.html">Projects →</a>
+          </div>
+        </div>
+
+        <aside class="panel panel--mono">
+          <div class="panel__hdr">
+            <span class="kicker">SKILLS (HIGH-LEVEL)</span>
+            <span class="pill">verified</span>
+          </div>
+
+          <ul class="monoList">
+            <li><b>Programming:</b> Python (NumPy/Pandas/Matplotlib), PyTorch, scikit-learn, OpenCV, Linux/SLURM/HPC workflows</li>
+            <li><b>Embedded:</b> ESP32 / ESP32-C3, Arduino ecosystem, IMUs, sensor fusion basics, telemetry</li>
+            <li><b>Imaging/3D:</b> Blender (geo nodes), BVH / mocap pipelines, PiFUHD + Mixamo workflows</li>
+          </ul>
+
+          <div class="divider"></div>
+
+          <div class="monoBlock">
+            <div class="monoBlock__title">NOTE</div>
+            <div class="monoBlock__body">
+              Update any wording in <code>assets/data/profile.json</code>. This page auto-renders it.
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer__inner">
+        <div class="footer__left">
+          <div class="monoSmall">© <span data-year></span> Danyal Khorami</div>
+        </div>
+        <div class="footer__right">
+          <a class="link" href="index.html">Home</a>
+          <a class="link" href="projects.html">Projects</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

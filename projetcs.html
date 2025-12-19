@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en" data-mode="archive">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projects — Danyal Khorami</title>
+  <meta name="description" content="Filterable project index across computer vision, deep learning, IoT/sensor fusion, XR/motion capture, and computational media." />
+  <link rel="icon" href="assets/img/placeholder.svg" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="topbar">
+    <div class="topbar__inner">
+      <a class="brand" href="index.html" aria-label="Home">
+        <span class="brand__mark" aria-hidden="true"></span>
+        <span class="brand__text">Danyal Khorami</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <button class="nav__toggle" data-nav-toggle aria-expanded="false" aria-controls="navMenu">
+          <span class="nav__toggleIcon" aria-hidden="true"></span>
+          <span class="sr-only">Toggle navigation</span>
+        </button>
+
+        <div id="navMenu" class="nav__menu" data-nav-menu>
+          <a class="nav__link" href="projects.html" aria-current="page">Projects</a>
+          <a class="nav__link" href="index.html#research">Research</a>
+          <a class="nav__link" href="index.html#teaching">Teaching</a>
+          <a class="nav__link" href="cv.html">CV</a>
+          <button class="chip" type="button" data-mode-toggle title="Toggle mode">
+            <span class="chip__dot" aria-hidden="true"></span>
+            <span class="chip__text" data-mode-label>Archive Mode</span>
+          </button>
+        </div>
+      </nav>
+    </div>
+
+    <div class="statusbar" aria-hidden="true">
+      <span class="statusbar__item">INDEX: PROJECTS</span>
+      <span class="statusbar__item">TIME: <span data-clock>--:--:--</span></span>
+      <span class="statusbar__item">RESULTS: <span data-resultcount>0</span></span>
+    </div>
+  </header>
+
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <main id="main" class="main">
+    <section class="section">
+      <div class="section__hdr">
+        <h1 class="h2">Projects</h1>
+        <p class="sub">
+          Think of this page as a lab log: filter by modality, stack, or outcome. Each item is meant to be reproducible.
+        </p>
+      </div>
+
+      <div class="panel panel--mono controls">
+        <div class="controls__row">
+          <label class="control">
+            <span class="control__label">Search</span>
+            <input class="control__input" type="search" placeholder="e.g., motion capture, IoT, ViT, diffusion…" data-search />
+          </label>
+
+          <label class="control">
+            <span class="control__label">Category</span>
+            <select class="control__select" data-category>
+              <option value="all">All</option>
+            </select>
+          </label>
+
+          <label class="control">
+            <span class="control__label">Tag</span>
+            <select class="control__select" data-tag>
+              <option value="all">All</option>
+            </select>
+          </label>
+
+          <button class="btn btn--ghost" type="button" data-reset>Reset</button>
+        </div>
+
+        <div class="controls__hint monoSmall">
+          Tip: keep the site image-light on purpose; treat images as “exhibits” you attach per project.
+        </div>
+      </div>
+
+      <div class="cards" id="projectGrid" aria-live="polite">
+        <!-- rendered by JS -->
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer__inner">
+        <div class="footer__left">
+          <div class="monoSmall">© <span data-year></span> Danyal Khorami</div>
+          <div class="monoSmall">Projects load from <code>assets/data/projects.json</code>.</div>
+        </div>
+        <div class="footer__right">
+          <a class="link" href="index.html">Home</a>
+          <a class="link" href="cv.html">CV</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/projects.js"></script>
+</body>
+</html>

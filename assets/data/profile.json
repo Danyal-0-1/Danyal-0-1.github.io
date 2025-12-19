@@ -1,0 +1,24 @@
+{
+  "name": "Danyal Khorami",
+  "lead": "I work at the intersection of computational media and engineering—building perception systems (vision + sensing) that remain robust in real conditions, and presenting those systems as media.",
+  "interests": [
+    "Computer vision",
+    "Temporal perception models",
+    "Sensor fusion & IoT",
+    "XR / motion capture",
+    "Embodied AI",
+    "Computational media"
+  ],
+  "facts": {
+    "Current": "MFA — Arizona State University (Expected May 2026)",
+    "Background": "M.A. Photography (Media & Image Theory), B.A. Graphic Design",
+    "Core": "Vision • sensing • reproducible pipelines",
+    "Platforms": "Linux • SLURM/HPC • ESP32-C3"
+  },
+  "contact": {
+    "email": "dkhorami@asu.edu",
+    "website": "https://danyalkhorami.com",
+    "phone": "+1-602-576-5927"
+  },
+  "cv_summary_html": "<div class=\"lead\">This site mirrors the way I work: systems-first, evidence-based, and reproducible. My work spans deep learning (vision, GANs/diffusion, temporal models), wearable motion capture with IMU sensor fusion, IoT sensing platforms, and computational-media installations.</div><ul class=\"monoList\"><li><b>Deep learning:</b> PyTorch on HPC (A100 / Gaudi), training + evaluation workflows, visualization, and ablations.</li><li><b>Wearables + sensing:</b> ESP32-C3 IMU nodes, time sync, streaming, packet handling, BVH export, benchmarking.</li><li><b>Computational media:</b> multi-space installations that treat models and sensors as part of the artwork’s logic.</li></ul>"
+}
