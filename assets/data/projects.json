@@ -2,93 +2,86 @@
   {
     "title": "Mesquite MoCap — Open-Source Wearable 6-DoF Motion Capture",
     "year": 2025,
-    "category": "Research / Engineering",
+    "type": "Research",
+    "badge": "Research / Hardware",
     "tags": ["Motion capture", "IMU", "Sensor fusion", "WebXR", "Embodied AI"],
-    "stack": ["ESP32-C3", "Arduino", "Networking", "BVH", "Benchmarking"],
-    "blurb": "Real-time full-body mocap using 15 wireless IMU nodes; engineered for low cost and real-world constraints.",
-    "details": "Built/debugged firmware + networking, tuned fusion and streaming; validated against OptiTrack and supported reproducible workflows.",
-    "highlight": true,
+    "stack": ["ESP32-C3", "Arduino", "Networking", "BVH export"],
+    "blurb": "Real-time full-body mocap with 15 wireless IMU nodes engineered for low cost and real-world latency budgets.",
+    "description": "Co-developed firmware, synchronized networking, packet handling, fusion tuned to ~32 FPS with <15 ms latency; validated vs OptiTrack (2–5° joint error).",
     "links": [
       { "label": "Paper (under review)", "href": "#" },
-      { "label": "Repo", "href": "#" }
-    ]
+      { "label": "Open source", "href": "#" }
+    ],
+    "gallery": ["assets/img/placeholder.svg"]
   },
   {
     "title": "To Wilt — MFA Thesis (4-Space Installation)",
     "year": 2026,
-    "category": "Computational Media / Art",
-    "tags": ["LLMs", "Installations", "Time-lapse", "Sensors", "Media theory"],
-    "stack": ["Web UI", "Raspberry Pi", "Blender", "Printers", "Data pipeline"],
-    "blurb": "A research-driven installation studying how LLMs express (or simulate) love and emotion via long-form dialogue—connected to physical media and sensing.",
-    "details": "Multi-screen video wall, live web dialogue, dot-matrix printouts, and time-lapse decay dataset integrated with environmental telemetry.",
-    "highlight": true,
+    "type": "Artistic",
+    "badge": "Computational Media",
+    "tags": ["LLMs", "Installations", "Sensors", "Time-lapse"],
+    "stack": ["Web UI", "Raspberry Pi", "Printers", "Blender"],
+    "blurb": "Research-driven installation exploring how LLMs perform love/emotion through long-form dialogue and environmental sensing.",
+    "description": "Includes 8-screen video wall (Blender rose-growth), live web dialogues printed via networked dot-matrix printers, time-lapse decay dataset with sensor logging and reflection by multiple LLM voices.",
     "links": [
       { "label": "Documentation", "href": "#" }
-    ]
+    ],
+    "gallery": ["assets/img/placeholder.svg"]
   },
   {
     "title": "Opuntia — Solar-Powered Sensor-Fusion Environmental Station",
     "year": 2025,
-    "category": "IoT / Sensing",
-    "tags": ["IoT", "Telemetry", "Sensor fusion", "Logging", "Resilience"],
-    "stack": ["ESP32-C3", "Sensors", "MongoDB", "Web", "Power management"],
-    "blurb": "Off-grid station with duty cycling + timestamp integrity, built for outages and recovery/backfill.",
-    "details": "Integrated multi-sensor telemetry and database-backed logging for daily histories and microclimate measurement.",
-    "highlight": true,
+    "type": "Hardware",
+    "badge": "IoT / Sensing",
+    "tags": ["IoT", "Telemetry", "Power budget", "Resilience"],
+    "stack": ["ESP32-C3", "Sensors", "MongoDB", "Solar + BMS"],
+    "blurb": "Off-grid environmental telemetry with duty cycling, timestamp integrity, and outage recovery/backfill.",
+    "description": "Solar + Li-ion power stack with battery management; integrated multi-sensor logging and database-backed histories for microclimate measurement.",
     "links": [
       { "label": "Repo", "href": "#" }
-    ]
-  },
-  {
-    "title": "Temporal Fusion Transformers for S&P 500 Forecasting",
-    "year": 2025,
-    "category": "Machine Learning",
-    "tags": ["Time series", "TFT", "LSTM", "Ablations", "Pipelines"],
-    "stack": ["Python", "PyTorch", "Data alignment", "Feature engineering"],
-    "blurb": "Co-led forecasting work with TFT variants and LSTM baselines, focusing on mixed-frequency pipelines.",
-    "details": "Designed preprocessing/alignment and ran controlled ablations under deadline constraints.",
-    "highlight": false,
-    "links": [
-      { "label": "Report", "href": "#" }
-    ]
-  },
-  {
-    "title": "Happenstance — Image-to-Avatar Pipeline for Virtual Worlds",
-    "year": 2025,
-    "category": "Computer Vision",
-    "tags": ["3D reconstruction", "Avatars", "Pipelines", "Virtual worlds"],
-    "stack": ["PiFUHD", "Mixamo", "3D mesh", "Rigging"],
-    "blurb": "Turning a single photograph into a rigged 3D character for rapid import into virtual environments.",
-    "details": "Iterating toward a faster, repeatable end-to-end workflow for avatar creation.",
-    "highlight": false,
-    "links": [
-      { "label": "Demo", "href": "#" }
-    ]
+    ],
+    "gallery": ["assets/img/placeholder.svg"]
   },
   {
     "title": "Multi-Phone 3D Capture Rig (In progress)",
     "year": 2025,
-    "category": "Research / Engineering",
-    "tags": ["Multi-view", "Calibration", "Synchronization", "Motion"],
-    "stack": ["Android", "Calibration", "Time sync", "Reconstruction"],
-    "blurb": "Low-cost synchronized multi-phone rig for small-scale multi-view capture.",
-    "details": "Designed for flexible XR/HRI experiments with reproducible calibration + sync pipelines.",
-    "highlight": false,
+    "type": "Research",
+    "badge": "Multi-view Capture",
+    "tags": ["Calibration", "Synchronization", "Motion", "XR"],
+    "stack": ["Android", "Time sync", "Reconstruction"],
+    "blurb": "Low-cost synchronized multi-phone rig for small-scale multi-view capture and XR/HRI experiments.",
+    "description": "Designing 4+ phone rig with calibration and temporal sync pipelines to feed pose estimation and mesh reconstruction.",
     "links": [
       { "label": "Notes", "href": "#" }
-    ]
+    ],
+    "gallery": ["assets/img/placeholder.svg"]
   },
   {
-    "title": "Deep Learning Foundations — Reproducible HPC Assignments (A1–A4)",
+    "title": "Happenstance — Image-to-Avatar Pipeline",
     "year": 2025,
-    "category": "Machine Learning",
-    "tags": ["PyTorch", "Vision", "GANs", "Diffusion", "HPC"],
-    "stack": ["A100", "Gaudi", "SLURM", "Conda", "Grad-CAM"],
-    "blurb": "A sequence of DL builds: classifiers, ViT fine-tuning, perceptual loss, custom ResNet/activation, SIREN, GANs/diffusion.",
-    "details": "Emphasis on reproducibility: dataset splits, ablations, visualization, and HPC job workflows.",
-    "highlight": false,
+    "type": "Research",
+    "badge": "Computer Vision",
+    "tags": ["3D reconstruction", "Avatars", "Pipelines"],
+    "stack": ["PiFUHD", "Mixamo", "Rigging"],
+    "blurb": "Turns a single human photograph into a rigged 3D character for rapid virtual-world import.",
+    "description": "Uses PiFUHD for high-res digitization and Mixamo for rigging; iterating toward a repeatable, faster pipeline.",
     "links": [
-      { "label": "Portfolio write-up", "href": "#" }
-    ]
+      { "label": "Demo", "href": "#" }
+    ],
+    "gallery": ["assets/img/placeholder.svg"]
+  },
+  {
+    "title": "Temporal Fusion Transformers for S&P 500 Forecasting",
+    "year": 2025,
+    "type": "Research",
+    "badge": "Machine Learning",
+    "tags": ["Time series", "TFT", "LSTM", "Ablations"],
+    "stack": ["PyTorch", "Feature engineering", "Mixed frequency"],
+    "blurb": "Co-led S&P500 forecasting with TFT variants and LSTM baselines; mixed-frequency pipeline design.",
+    "description": "Built preprocessing, alignment constraints, separate embeddings for endogenous/exogenous features; ran controlled ablations on deadlines.",
+    "links": [
+      { "label": "Report", "href": "#" }
+    ],
+    "gallery": ["assets/img/placeholder.svg"]
   }
 ]

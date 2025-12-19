@@ -1,215 +1,320 @@
 <!doctype html>
-<html lang="en" data-mode="archive">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Danyal Khorami — Computational Media / Computer Vision</title>
-  <meta name="description" content="Computational media, computer vision, embodied AI, sensor fusion & IoT, XR/motion capture. Selected projects, research, and exhibitions." />
-
-  <meta property="og:title" content="Danyal Khorami — Computational Media / Computer Vision" />
-  <meta property="og:description" content="Projects at the intersection of perception systems, embodied AI, and computational media." />
-  <meta property="og:type" content="website" />
-
-  <link rel="icon" href="assets/img/placeholder.svg" />
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Danyal Khorami — Interactive AI/Media Portfolio</title>
+  <meta name="description" content="Interactive WebGL portfolio for Danyal Khorami — computer vision, motion capture, embodied AI, computational media." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
-
 <body>
   <a class="skip" href="#main">Skip to content</a>
+  <div class="bg" aria-hidden="true">
+    <div class="bg__gradient"></div>
+    <div class="bg__grid"></div>
+  </div>
 
-  <header class="topbar">
-    <div class="topbar__inner">
-      <a class="brand" href="index.html" aria-label="Home">
-        <span class="brand__mark" aria-hidden="true"></span>
-        <span class="brand__text">Danyal Khorami</span>
-      </a>
-
-      <nav class="nav" aria-label="Primary">
-        <button class="nav__toggle" data-nav-toggle aria-expanded="false" aria-controls="navMenu">
-          <span class="nav__toggleIcon" aria-hidden="true"></span>
-          <span class="sr-only">Toggle navigation</span>
-        </button>
-
-        <div id="navMenu" class="nav__menu" data-nav-menu>
-          <a class="nav__link" href="projects.html">Projects</a>
-          <a class="nav__link" href="#research">Research</a>
-          <a class="nav__link" href="#teaching">Teaching</a>
-          <a class="nav__link" href="cv.html">CV</a>
-          <button class="chip" type="button" data-mode-toggle title="Toggle mode">
-            <span class="chip__dot" aria-hidden="true"></span>
-            <span class="chip__text" data-mode-label>Archive Mode</span>
-          </button>
-        </div>
-      </nav>
+  <header class="shell topnav">
+    <div class="topnav__brand">
+      <div class="brand__mark" aria-hidden="true"></div>
+      <div class="brand__text">
+        <span class="brand__name">Danyal Khorami</span>
+        <span class="brand__role">MFA Media Arts · ASU '26</span>
+      </div>
     </div>
-
-    <div class="statusbar" aria-hidden="true">
-      <span class="statusbar__item">OBSERVATION: ACTIVE</span>
-      <span class="statusbar__item">TIME: <span data-clock>--:--:--</span></span>
-      <span class="statusbar__item">SCROLL: <span data-scrollpct>0%</span></span>
-    </div>
+    <nav class="topnav__links" aria-label="Primary">
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#experience">Experiments</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#contact">Contact</a>
+      <a class="pill" href="cv.html">Download CV</a>
+    </nav>
   </header>
 
-  <div class="scanlines" aria-hidden="true"></div>
-
-  <main id="main" class="main">
-    <section class="hero">
-      <div class="grid">
-        <div class="panel hero__panel">
-          <div class="panel__hdr">
-            <span class="kicker">CONTROL ROOM / PORTFOLIO</span>
-            <span class="pill">LIVE</span>
-          </div>
-
-          <h1 class="h1">
-            Building perception systems for computational media:
-            <span class="accent">computer vision</span>, <span class="accent">sensor fusion</span>, <span class="accent">embodied AI</span>.
-          </h1>
-
-          <p class="lead" id="profileLead">
-            Loading profile…
-          </p>
-
-          <div class="ctaRow">
-            <a class="btn" href="projects.html">
-              View Projects
-              <span class="btn__arrow" aria-hidden="true">→</span>
-            </a>
-            <a class="btn btn--ghost" href="cv.html">Open CV</a>
-          </div>
-
-          <div class="chips" id="interestChips" aria-label="Research interests">
-            <!-- populated by JS -->
-          </div>
-        </div>
-
-        <aside class="panel panel--mono hero__aside" aria-label="Quick facts">
-          <div class="panel__hdr">
-            <span class="kicker">SYSTEM SUMMARY</span>
-            <span class="pill pill--muted">v1.0</span>
-          </div>
-
-          <dl class="facts" id="facts">
-            <!-- populated by JS -->
-          </dl>
-
-          <div class="divider"></div>
-
-          <div class="monoBlock">
-            <div class="monoBlock__title">CONTACT</div>
-            <div class="monoBlock__body" id="contactBlock">
-              <!-- populated by JS -->
-            </div>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="section" id="research">
-      <div class="section__hdr">
-        <h2 class="h2">Research focus</h2>
-        <p class="sub">
-          The goal is to make systems that perceive, synchronize, and interpret the world—then expose those mechanics as media.
+  <main id="main" class="shell">
+    <section id="hero" class="section hero">
+      <div class="hero__content">
+        <p class="eyebrow">Computer vision · Motion capture · Embodied AI</p>
+        <h1>
+          Building responsive systems that see, sense, and perform—
+          then turning them into media experiences.
+        </h1>
+        <p class="lede">
+          Danyal is a researcher and computational media artist preparing for PhD work in vision, motion capture, and embodied intelligence.
+          Currently finishing an MFA at Arizona State University and shipping real-time sensor fusion, XR pipelines, and installation work.
         </p>
+        <div class="chips" id="researchChips"></div>
+        <div class="ctaRow">
+          <a class="btn" href="#projects">View research projects</a>
+          <a class="btn btn--ghost" href="cv.html">Download CV</a>
+        </div>
+        <div class="hero__meta">
+          <div>
+            <p class="mono">Education</p>
+            <p>ASU MFA (Interdisciplinary Media Arts), Tehran University of Art (M.A. Photography), UAST (B.A. Graphic Design)</p>
+          </div>
+          <div>
+            <p class="mono">Research interests</p>
+            <p>Temporal perception models, wearable motion capture, sensor fusion & IoT, embodied AI, computational media.</p>
+          </div>
+        </div>
+        <div class="portrait" aria-label="Portrait placeholder">
+          <div class="portrait__frame">
+            <div class="portrait__placeholder">Add your portrait</div>
+          </div>
+          <p class="mono">Placeholder portrait — replace with your image (first fold)</p>
+        </div>
       </div>
-
-      <div class="cards">
-        <article class="card">
-          <div class="card__top">
-            <span class="tag">Perception</span>
-            <span class="tag">Vision</span>
+      <div class="hero__viz">
+        <div class="canvasShell">
+          <canvas id="heroCanvas" aria-label="Interactive AI robot"></canvas>
+          <div class="canvasShell__label">AI Guide · reacts to mouse + scroll</div>
+        </div>
+        <div class="hero__stat">
+          <div>
+            <p class="mono">Latency target</p>
+            <p>60fps render · adaptive quality · WebGL/Three.js</p>
           </div>
-          <h3 class="h3">Computer vision + temporal understanding</h3>
-          <p>
-            Models that stay time-consistent under noise, drift, missing packets, and domain shift—especially where motion and vision must agree.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="card__top">
-            <span class="tag">Sensing</span>
-            <span class="tag">IoT</span>
+          <div>
+            <p class="mono">Featured builds</p>
+            <p>Mesquite MoCap · To Wilt · Opuntia · Happenstance · TFT Forecasting</p>
           </div>
-          <h3 class="h3">Low-cost sensor fusion platforms</h3>
-          <p>
-            Wearable IMUs, environmental telemetry, and synchronized pipelines designed for real-world failure modes (power loss, latency, jitter).
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="card__top">
-            <span class="tag">Computational media</span>
-            <span class="tag">XR</span>
-          </div>
-          <h3 class="h3">Embodied interfaces</h3>
-          <p>
-            Turning technical pipelines into experiences: dashboards, live prints, multi-screen installations, and XR-ready motion data.
-          </p>
-        </article>
-      </div>
-
-      <div class="section__footer">
-        <a class="link" href="projects.html">Browse projects as evidence →</a>
+        </div>
       </div>
     </section>
 
-    <section class="section" id="teaching">
+    <section id="about" class="section about">
       <div class="section__hdr">
-        <h2 class="h2">Teaching</h2>
-        <p class="sub">
-          I teach photography and digital media while building technical systems—bridging theory, practice, and reproducible workflows.
-        </p>
+        <div>
+          <p class="eyebrow">About + Research</p>
+          <h2>Rigorous pipelines with a media artist's sensibility.</h2>
+          <p class="lede">Combining computer vision, motion capture, and IoT to build embodied AI systems — then turning them into installations, XR assets, and live demos.</p>
+        </div>
+        <div class="floating" aria-hidden="true" data-floating-shapes>
+          <div class="shape shape--orb"></div>
+          <div class="shape shape--prism"></div>
+          <div class="shape shape--ring"></div>
+        </div>
       </div>
 
-      <div class="panel panel--mono">
-        <div class="monoTable" role="table" aria-label="Teaching roles">
-          <div class="monoRow monoRow--hdr" role="row">
-            <div role="columnheader">Role</div>
-            <div role="columnheader">Focus</div>
-            <div role="columnheader">Timeline</div>
-          </div>
+      <div class="about__grid">
+        <article class="panel">
+          <h3>Bio</h3>
+          <p>
+            MFA candidate (Media Arts) at Arizona State University. Research centers on computer vision under motion and noise, synchronized sensing, and embodied interfaces. Previous work spans GANs/diffusion, custom activations, and neural rendering alongside low-cost IMU rigs and IoT telemetry.
+          </p>
+          <ul class="list">
+            <li>IndiaFOSS 2025 speaker — Mesquite MoCap (open-source IMU mocap)</li>
+            <li>Anderson Ranch Fellowship 2024 · ASU Tuition Award 2023–2026</li>
+            <li>Installations: multi-screen LLM dialogues, live-print telemetry, XR-ready avatars</li>
+          </ul>
+        </article>
 
-          <div class="monoRow" role="row">
-            <div role="cell">Instructor of Record — ASU School of Art</div>
-            <div role="cell">Photography, landscape, digital media</div>
-            <div role="cell">2024–2026</div>
-          </div>
+        <article class="panel">
+          <h3>Education timeline</h3>
+          <ul class="timeline">
+            <li>
+              <span class="mono">2026 (exp.)</span>
+              <div>
+                <strong>Arizona State University</strong>
+                <p>MFA Interdisciplinary Media Arts — computer vision, motion capture, embodied AI.</p>
+              </div>
+            </li>
+            <li>
+              <span class="mono">2023</span>
+              <div>
+                <strong>Tehran University of Art</strong>
+                <p>M.A. Photography (Media & Image Theory), GPA 3.98</p>
+              </div>
+            </li>
+            <li>
+              <span class="mono">2020</span>
+              <div>
+                <strong>University of Applied Science and Technology</strong>
+                <p>B.A. Graphic Design, GPA 3.86</p>
+              </div>
+            </li>
+          </ul>
+        </article>
 
-          <div class="monoRow" role="row">
-            <div role="cell">Graduate RA/TA — Northlight Gallery & School of Art</div>
-            <div role="cell">Curation support, critiques, demos, mentoring</div>
-            <div role="cell">2023–2025</div>
+        <article class="panel panel--stack">
+          <h3>Skill constellation</h3>
+          <p>Hover or tap to spin the skill cloud. Tags are pulled into the 3D scene for subtle parallax.</p>
+          <div class="skillCloud" id="skillCloud" aria-label="Floating skills"></div>
+          <div class="chips chips--mono">
+            <span class="chip">PyTorch · ViT · GANs/Diffusion</span>
+            <span class="chip">ESP32-C3 · Sensor fusion</span>
+            <span class="chip">WebGL · GSAP</span>
+            <span class="chip">Blender · Mixamo · PiFUHD</span>
           </div>
-        </div>
+        </article>
       </div>
     </section>
 
-    <section class="section" id="selected">
+    <section id="projects" class="section projects">
       <div class="section__hdr">
-        <h2 class="h2">Selected highlights</h2>
-        <p class="sub">A few anchors (full details on the Projects page).</p>
+        <div>
+          <p class="eyebrow">Research Projects</p>
+          <h2>Six flagship builds in 3D space.</h2>
+          <p class="lede">Cards tilt in 3D; click to open modal galleries with stack, links, and detailed notes.</p>
+        </div>
+        <div class="filters">
+          <label class="mono" for="filterType">Type</label>
+          <select id="filterType" aria-label="Filter by type">
+            <option value="all">All</option>
+            <option value="Research">Research</option>
+            <option value="Artistic">Artistic</option>
+            <option value="Hardware">Hardware</option>
+          </select>
+        </div>
       </div>
+      <div class="projectGrid" id="projectGrid"></div>
+    </section>
 
-      <div class="cards" id="highlights">
-        <!-- populated by JS from projects.json -->
+    <section id="experience" class="section experience">
+      <div class="section__hdr">
+        <div>
+          <p class="eyebrow">Interactive experiment</p>
+          <h2>Abstract motion capture lattice.</h2>
+          <p class="lede">Rotate/zoom the structure to see how data streams synchronize; represents IMU packets and neural feature flow.</p>
+        </div>
+        <div class="controls">
+          <button class="btn btn--ghost" data-reset-viz>Reset view</button>
+          <button class="btn" data-pause-viz>Pause</button>
+        </div>
+      </div>
+      <div class="experience__wrap">
+        <div class="canvasShell canvasShell--secondary">
+          <canvas id="vizCanvas" aria-label="Motion capture visualization"></canvas>
+          <div class="canvasShell__label">Drag to rotate · Scroll to zoom · Touch supported</div>
+        </div>
+        <div class="experience__text">
+          <h3>Methodology</h3>
+          <p>Nodes = IMU trackers + joints · edges = fusion relationships. Colors pulse based on simulated packet timing and confidence. Built with instanced meshes for performance.</p>
+          <ul class="list">
+            <li>Adaptive quality: device pixel ratio capped for mobile.</li>
+            <li>Fallback: degradable to 2D SVG if WebGL is unavailable.</li>
+            <li>Data hooks: drop in real BVH/CSV streams via <code>viz.updateFromStream</code>.</li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <footer class="footer">
-      <div class="footer__inner">
-        <div class="footer__left">
-          <div class="monoSmall">© <span data-year></span> Danyal Khorami</div>
-          <div class="monoSmall">Built as a static GitHub Pages site (no build step).</div>
+    <section id="timeline" class="section timelineSection">
+      <div class="section__hdr">
+        <p class="eyebrow">Publications, exhibitions, talks</p>
+        <h2>Milestones with scroll-triggered reveals.</h2>
+      </div>
+      <ol class="vTimeline" aria-label="Timeline">
+        <li>
+          <div class="dot"></div>
+          <div>
+            <p class="mono">2025</p>
+            <strong>IndiaFOSS — Speaker</strong>
+            <p>Mesquite MoCap: open-source, real-time IMU motion capture with WebXR export.</p>
+          </div>
+        </li>
+        <li>
+          <div class="dot"></div>
+          <div>
+            <p class="mono">2024</p>
+            <strong>Anderson Ranch Arts Center Fellowship</strong>
+            <p>Residency focused on computational media workflows and embodied AI concepts.</p>
+          </div>
+        </li>
+        <li>
+          <div class="dot"></div>
+          <div>
+            <p class="mono">2024</p>
+            <strong>Exhibitions</strong>
+            <p>Fieldnotes (Harry Wood Gallery), Phoenix Transect, SPE Northwest Conference, Galbirt Prize Exhibition.</p>
+          </div>
+        </li>
+        <li>
+          <div class="dot"></div>
+          <div>
+            <p class="mono">2023</p>
+            <strong>Collections + Talks</strong>
+            <p>Northlight Gallery collection; artist talks at ASU Herberger Institute; prior exhibitions in Tehran and Arak.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section id="contact" class="section contact">
+      <div class="section__hdr">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Let's collaborate on embodied AI, vision, or installations.</h2>
         </div>
-        <div class="footer__right">
-          <a class="link" href="cv.html">CV</a>
-          <a class="link" href="projects.html">Projects</a>
-          <a class="link" href="#main">Top ↑</a>
+        <div class="chips chips--mono">
+          <span class="chip">Email</span>
+          <span class="chip">LinkedIn</span>
+          <span class="chip">GitHub</span>
         </div>
       </div>
-    </footer>
+      <div class="contact__grid">
+        <div class="contact__cards">
+          <article class="contactCard">
+            <p class="mono">Email</p>
+            <a class="link" href="mailto:dkhorami@asu.edu">dkhorami@asu.edu</a>
+            <p>Best for research collaborations and speaking engagements.</p>
+          </article>
+          <article class="contactCard">
+            <p class="mono">LinkedIn</p>
+            <a class="link" href="https://www.linkedin.com/in/danyalkhorami" target="_blank" rel="noopener">linkedin.com/in/danyalkhorami</a>
+            <p>Professional updates, publications, and open roles.</p>
+          </article>
+          <article class="contactCard">
+            <p class="mono">GitHub</p>
+            <a class="link" href="https://github.com/Danyal-0-1" target="_blank" rel="noopener">github.com/Danyal-0-1</a>
+            <p>Code for motion capture, IoT telemetry, and experiments.</p>
+          </article>
+        </div>
+        <form class="form" id="contactForm" novalidate>
+          <div class="form__row">
+            <label for="name">Name</label>
+            <input id="name" name="name" required placeholder="Your name" />
+          </div>
+          <div class="form__row">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required placeholder="name@email.com" />
+          </div>
+          <div class="form__row">
+            <label for="message">Project idea</label>
+            <textarea id="message" name="message" rows="4" required placeholder="Tell me about the collaboration" ></textarea>
+          </div>
+          <p class="form__hint" id="formHint">Form validates locally; wire to your endpoint of choice.</p>
+          <button class="btn" type="submit">Send message</button>
+        </form>
+      </div>
+    </section>
   </main>
 
-  <script src="assets/js/main.js"></script>
+  <div class="modal" id="projectModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__card" role="document">
+      <button class="modal__close" aria-label="Close" data-close-modal>×</button>
+      <div class="modal__content">
+        <div class="modal__media" id="modalGallery"></div>
+        <div class="modal__body">
+          <p class="pill pill--small" id="modalCategory"></p>
+          <h3 id="modalTitle"></h3>
+          <p class="lede" id="modalDescription"></p>
+          <div class="chips" id="modalTech"></div>
+          <div class="links" id="modalLinks"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <noscript>
+    <div class="noscript">This site uses WebGL + JavaScript for interactivity. Enable JS to see the 3D robot and animations.</div>
+  </noscript>
+
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>
