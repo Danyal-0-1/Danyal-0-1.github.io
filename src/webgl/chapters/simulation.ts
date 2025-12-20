@@ -34,14 +34,14 @@ export function createSimulationSpace({ reducedMotion, isMobile }: SimulationCon
 
   function update(delta: number, elapsed: number) {
     if (!reducedMotion) {
-      rayGroup.children.forEach((line, index) => {
+      rayGroup.children.forEach((line: THREE.Object3D, index: number) => {
         line.position.z = Math.sin(elapsed * 0.6 + index) * 0.6;
       });
     }
 
     if (pulseStrength > 0.001) {
       pulseStrength *= 0.92;
-      rayGroup.children.forEach(line => {
+      rayGroup.children.forEach((line: THREE.Object3D) => {
         const mat = line.material as THREE.LineBasicMaterial;
         mat.opacity = 0.2 + pulseStrength * 0.4;
       });
@@ -54,7 +54,7 @@ export function createSimulationSpace({ reducedMotion, isMobile }: SimulationCon
 
   function setOpacity(value: number) {
     group.visible = value > 0.02;
-    rayGroup.children.forEach(line => {
+    rayGroup.children.forEach((line: THREE.Object3D) => {
       const mat = line.material as THREE.LineBasicMaterial;
       mat.opacity = value * 0.25;
     });
@@ -63,7 +63,7 @@ export function createSimulationSpace({ reducedMotion, isMobile }: SimulationCon
 
   function setQuality(level: QualityLevel) {
     const scale = level === 'low' ? 0.6 : level === 'high' ? 1 : 0.8;
-    rayGroup.children.forEach(line => {
+    rayGroup.children.forEach((line: THREE.Object3D) => {
       const mat = line.material as THREE.LineBasicMaterial;
       mat.opacity = 0.18 * scale;
     });

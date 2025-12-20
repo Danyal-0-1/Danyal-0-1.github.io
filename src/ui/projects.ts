@@ -14,6 +14,9 @@ export function initProjects({ projects, onOpen }: ProjectsInit) {
 
   if (!filterRoot || !grid || !modal) return;
 
+  const gridEl = grid;
+  const modalEl = modal;
+
   const categories = ORDERED_CATEGORIES.filter(cat =>
     cat === 'All' || projects.some(project => project.category === cat)
   );
@@ -24,13 +27,13 @@ export function initProjects({ projects, onOpen }: ProjectsInit) {
     renderCards();
   });
 
-  const closeButtons = modal.querySelectorAll('[data-close-modal]');
+  const closeButtons = modalEl.querySelectorAll('[data-close-modal]');
   closeButtons.forEach(btn => btn.addEventListener('click', closeModal));
-  modal.addEventListener('click', event => {
+  modalEl.addEventListener('click', event => {
     if ((event.target as HTMLElement).classList.contains('modal-backdrop')) closeModal();
   });
-  document.addEventListener('keydown', event => {
-    if (event.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+  document.addEventListener('keydown', (event: KeyboardEvent) => {
+    if (event.key === 'Escape' && modalEl.classList.contains('is-open')) closeModal();
   });
 
   renderCards();
@@ -40,14 +43,14 @@ export function initProjects({ projects, onOpen }: ProjectsInit) {
       ? projects
       : projects.filter(project => project.category === activeCategory);
 
-    grid.innerHTML = visible.map(cardMarkup).join('');
-    grid.querySelectorAll('.project-card').forEach(card => {
+    gridEl.innerHTML = visible.map(cardMarkup).join('');
+    gridEl.querySelectorAll('.project-card').forEach(card => {
       card.addEventListener('click', () => {
         const projectId = card.getAttribute('data-id');
         const project = visible.find(item => item.id === projectId);
         if (project) openModal(project);
       });
-      card.addEventListener('keydown', event => {
+      card.addEventListener('keydown', (event: KeyboardEvent) => {
         if (event.key === 'Enter' || event.key === ' ') {
           event.preventDefault();
           const projectId = card.getAttribute('data-id');
@@ -59,18 +62,18 @@ export function initProjects({ projects, onOpen }: ProjectsInit) {
   }
 
   function openModal(project: Project) {
-    const title = modal.querySelector('[data-modal-title]');
-    const summary = modal.querySelector('[data-modal-summary]');
-    const category = modal.querySelector('[data-modal-category]');
-    const start = modal.querySelector('[data-modal-start]');
-    const status = modal.querySelector('[data-modal-status]');
-    const location = modal.querySelector('[data-modal-location]');
-    const problem = modal.querySelector('[data-modal-problem]');
-    const contributions = modal.querySelector('[data-modal-contributions]');
-    const tech = modal.querySelector('[data-modal-tech]');
-    const outcomes = modal.querySelector('[data-modal-outcomes]');
-    const links = modal.querySelector('[data-modal-links]');
-    const gallery = modal.querySelector('[data-modal-gallery]');
+    const title = modalEl.querySelector('[data-modal-title]');
+    const summary = modalEl.querySelector('[data-modal-summary]');
+    const category = modalEl.querySelector('[data-modal-category]');
+    const start = modalEl.querySelector('[data-modal-start]');
+    const status = modalEl.querySelector('[data-modal-status]');
+    const location = modalEl.querySelector('[data-modal-location]');
+    const problem = modalEl.querySelector('[data-modal-problem]');
+    const contributions = modalEl.querySelector('[data-modal-contributions]');
+    const tech = modalEl.querySelector('[data-modal-tech]');
+    const outcomes = modalEl.querySelector('[data-modal-outcomes]');
+    const links = modalEl.querySelector('[data-modal-links]');
+    const gallery = modalEl.querySelector('[data-modal-gallery]');
 
     if (title) title.textContent = project.title;
     if (summary) summary.textContent = project.summary;
@@ -106,18 +109,18 @@ export function initProjects({ projects, onOpen }: ProjectsInit) {
       }
     }
 
-    modal.classList.add('is-open');
-    modal.setAttribute('aria-hidden', 'false');
+    modalEl.classList.add('is-open');
+    modalEl.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
-    trapFocus(modal);
+    trapFocus(modalEl);
     onOpen?.(project);
   }
 
   function closeModal() {
-    modal.classList.remove('is-open');
-    modal.setAttribute('aria-hidden', 'true');
+    modalEl.classList.remove('is-open');
+    modalEl.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
-    releaseFocus(modal);
+    releaseFocus(modalEl);
   }
 }
 

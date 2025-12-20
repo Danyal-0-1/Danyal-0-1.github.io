@@ -25,14 +25,17 @@ type WebGLInit = {
 export function initWebGL({ canvas, reducedMotion }: WebGLInit): WebGLController | null {
   if (!canvas) return null;
 
+  const canvasEl = canvas;
+
   let renderer: THREE.WebGLRenderer;
   try {
-    renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+    renderer = new THREE.WebGLRenderer({ canvas: canvasEl, antialias: true, alpha: true });
   } catch (error) {
     document.body.classList.add('webgl-fallback');
     return null;
   }
-  renderer.setClearColor(0xffffff, 0);
+  renderer.setClearColor(0xffffff);
+  renderer.setClearAlpha(0);
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
@@ -120,7 +123,7 @@ export function initWebGL({ canvas, reducedMotion }: WebGLInit): WebGLController
   }
 
   function resize() {
-    const { clientWidth, clientHeight } = canvas;
+    const { clientWidth, clientHeight } = canvasEl;
     if (!clientWidth || !clientHeight) return;
     renderer.setSize(clientWidth, clientHeight, false);
     camera.aspect = clientWidth / clientHeight;
@@ -160,9 +163,9 @@ export function initWebGL({ canvas, reducedMotion }: WebGLInit): WebGLController
 
   function enableOrbit(enabled: boolean) {
     controls.enabled = enabled;
-    canvas.style.pointerEvents = enabled ? 'auto' : 'none';
-    if (canvas.parentElement) {
-      canvas.parentElement.style.pointerEvents = enabled ? 'auto' : 'none';
+    canvasEl.style.pointerEvents = enabled ? 'auto' : 'none';
+    if (canvasEl.parentElement) {
+      canvasEl.parentElement.style.pointerEvents = enabled ? 'auto' : 'none';
     }
   }
 
