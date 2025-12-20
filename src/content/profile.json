@@ -1,0 +1,56 @@
+{
+  "name": "Danyal Khorami",
+  "email": "dkhorami@asu.edu",
+  "website": "https://danyalkhorami.com",
+  "location": "Tempe, AZ (Arizona State University)",
+  "program": "MFA, Interdisciplinary Media Arts (ASU, Expected May 2026)",
+  "researchInterests": [
+    "Computer vision",
+    "Temporal perception models",
+    "Sensor fusion & IoT",
+    "XR / motion capture",
+    "Embodied AI",
+    "Computational media"
+  ],
+  "affiliations": [
+    "Arizona State University (Herberger Institute for Design and the Arts)",
+    "School of Art",
+    "Northlight Gallery (curation/installation support)",
+    "SOL / HPC workflows (A100 & Gaudi benchmarking contexts)"
+  ],
+  "coursework": [
+    "Deep Learning Foundations and Applications (EEE 598)",
+    "Computer Vision and Pattern Recognition (EEE 598)",
+    "Ray Tracing (EEE 598)",
+    "Minds and Machines (AME 598)",
+    "Programming for the Internet of Things (AME 598)",
+    "Principles of Programming (CSE 110)"
+  ],
+  "skills": {
+    "programmingData": [
+      "Python (NumPy, Pandas, Matplotlib, Jupyter)",
+      "PyTorch",
+      "Basic TensorFlow/Keras",
+      "scikit-learn",
+      "OpenCV, torchvision",
+      "Temporal models (LSTM, TFT basics)",
+      "Linux (Ubuntu), SLURM, conda/mamba, HPC workflows"
+    ],
+    "embeddedHardware": [
+      "ESP32 / ESP32-C3",
+      "Arduino ecosystem",
+      "Environmental sensors",
+      "IMU sensors (accelerometer, gyroscope)",
+      "Basic sensor fusion",
+      "IoT prototyping",
+      "Serial/network communication",
+      "Low-power telemetry concepts"
+    ],
+    "imaging3DXR": [
+      "Blender (including geometry nodes)",
+      "Motion capture workflows (BVH export, rigging pipelines)",
+      "PiFUHD-based reconstruction",
+      "Mixamo rigging pipeline"
+    ]
+  }
+}

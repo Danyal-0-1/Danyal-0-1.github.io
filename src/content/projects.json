@@ -1,0 +1,157 @@
+[
+  {
+    "id": "mesquite-mocap",
+    "title": "Mesquite MoCap",
+    "category": "Hardware",
+    "status": "Active / Research",
+    "startDate": { "label": "Approx. 2024", "precision": "approx" },
+    "location": "ASU / research collaboration",
+    "summary": "Open-source wearable 6-DoF full-body motion capture system using 15 wireless ESP32-C3 IMU nodes.",
+    "problem": "Affordable, real-time motion capture is often inaccessible; goal is to democratize capture with low-cost, open hardware and WebXR-ready tooling.",
+    "contributions": [
+      "Firmware development (Arduino/ESP32) with time-synchronized networking, packet handling, real-time streaming",
+      "Sensor fusion tuning to ~32 FPS, <15 ms latency, ~99.7% packet delivery",
+      "BVH export implementation",
+      "Benchmarking vs OptiTrack (~2–5° joint error)"
+    ],
+    "techStack": ["ESP32-C3", "IMU", "Sensor fusion", "Networking", "Real-time streaming", "BVH", "WebXR"],
+    "outcomes": [
+      "Accepted to IndiaFOSS 2025 (speaker)",
+      "IEEE manuscript under review"
+    ],
+    "links": { "github": null, "demo": null, "paper": null },
+    "gallery": [
+      { "src": "/images/placeholder-mesquite-1.jpg", "alt": "Mesquite MoCap placeholder" }
+    ]
+  },
+  {
+    "id": "opuntia",
+    "title": "Opuntia",
+    "category": "Hardware",
+    "status": "Completed (Course Project)",
+    "startDate": { "label": "Approx. 2024–2025 (AME 598)", "precision": "approx" },
+    "location": "ASU (AME 598 IoT)",
+    "summary": "Solar-powered sensor-fusion environmental station with database-backed logging + web broadcasting.",
+    "problem": "Off-grid microclimate sensing requires robust power management, time integrity, and outage recovery.",
+    "contributions": [
+      "Built ESP32-C3 station with solar + Li-ion power stack and battery management",
+      "Integrated multi-sensor telemetry (temp/humidity/pressure/soil/field sensing)",
+      "Implemented web broadcasting + MongoDB daily histories",
+      "Designed duty cycling, timestamp integrity, outage recovery/backfill"
+    ],
+    "techStack": ["ESP32-C3", "Solar power", "Li-ion", "Environmental sensors", "MongoDB", "Web dashboard"],
+    "outcomes": ["End-to-end working prototype + logging pipeline"],
+    "links": { "github": null, "demo": null, "paper": null },
+    "gallery": [
+      { "src": "/images/placeholder-opuntia-1.jpg", "alt": "Opuntia placeholder" }
+    ]
+  },
+  {
+    "id": "multi-phone-rig",
+    "title": "Multi-Phone 3D Capture Rig",
+    "category": "Research",
+    "status": "In Progress",
+    "startDate": { "label": "Approx. 2025", "precision": "approx" },
+    "location": "ASU (XR / HRI experiments)",
+    "summary": "Small-scale multi-view motion capture rig using ≥4 synchronized Android phones for pose + mesh reconstruction.",
+    "problem": "Need a flexible, low-cost capture platform for human motion, XR, and HRI experiments.",
+    "contributions": [
+      "Designing synchronized capture workflow (≥4 phones, e.g., Samsung S23)",
+      "Developing calibration + temporal synchronization",
+      "Building pipelines for pose estimation and mesh reconstruction"
+    ],
+    "techStack": ["Multi-view geometry", "Calibration", "Temporal sync", "Pose estimation", "Mesh reconstruction"],
+    "outcomes": ["Prototype pipeline (planned)"],
+    "links": { "github": null, "demo": null, "paper": null },
+    "gallery": [
+      { "src": "/images/placeholder-multiphone-1.jpg", "alt": "Multi-phone rig placeholder" }
+    ]
+  },
+  {
+    "id": "tft-forecasting",
+    "title": "Temporal Fusion Transformers for Financial Forecasting",
+    "category": "Research",
+    "status": "Completed (Course Final Project)",
+    "startDate": { "label": "Approx. 2024–2025 (EEE 598)", "precision": "approx" },
+    "location": "ASU (EEE 598 Deep Learning)",
+    "summary": "S&P 500 return forecasting using TFT with LSTM baselines and a mixed-frequency data pipeline.",
+    "problem": "Aligning macro + equity time series requires careful preprocessing and temporal alignment strategies.",
+    "contributions": [
+      "Co-led TFT forecasting with LSTM baselines",
+      "Designed mixed-frequency data pipeline and handled alignment constraints",
+      "Implemented TFT variants (separate embeddings for endogenous vs exogenous features)",
+      "Managed ablations under tight deadlines"
+    ],
+    "techStack": ["PyTorch", "TFT", "LSTM", "Time series", "Ablations", "Data pipeline"],
+    "outcomes": ["Final project report + experiments"],
+    "links": { "github": null, "demo": null, "paper": null },
+    "gallery": [
+      { "src": "/images/placeholder-tft-1.jpg", "alt": "TFT placeholder" }
+    ]
+  },
+  {
+    "id": "to-wilt",
+    "title": "To Wilt",
+    "category": "Artistic",
+    "status": "In Progress (MFA Thesis / Solo Exhibition, 4 spaces)",
+    "startDate": { "label": "Approx. 2024–2026", "precision": "approx" },
+    "location": "ASU (MFA Thesis)",
+    "summary": "Multi-space installation studying how LLMs express (or simulate) love/emotion through long-form model-to-model dialogue.",
+    "problem": "Investigate how language models simulate affect and attachment, and how measurement/representation shapes interpretation over time.",
+    "contributions": [
+      "Space 1: 8-screen video wall + Blender rose-growth metaphor + 3 LLM ‘voices’ (philosopher/phenomenologist, neuroscientist, lover)",
+      "Space 2: Web-based dialogue + two networked dot-matrix printers via Raspberry Pi printing live",
+      "Space 3: ~22k-image rose decay dataset time-lapse + LLM voice analysis of ‘decay of feelings’",
+      "Space 4: Sensor-fusion rose tank logging + printing measurements every 5 minutes; LLM reflection on measurable environmental change"
+    ],
+    "techStack": ["LLMs", "Prompting / fine-tuning (as applicable)", "Web UI", "Raspberry Pi", "Dot-matrix printing", "Blender", "Sensor fusion", "Dataset pipeline"],
+    "outcomes": ["Solo exhibition plan + paper writing (planned)"],
+    "links": { "github": null, "demo": null, "paper": null },
+    "gallery": [
+      { "src": "/images/placeholder-towilt-1.jpg", "alt": "To Wilt placeholder" }
+    ]
+  },
+  {
+    "id": "happenstance",
+    "title": "Happenstance",
+    "category": "Artistic",
+    "status": "In Progress",
+    "startDate": { "label": "Approx. 2024–2025", "precision": "approx" },
+    "location": "ASU (Computational media / virtual worlds)",
+    "summary": "Image-to-avatar pipeline: single photo → 3D human mesh → rigged character for virtual environments.",
+    "problem": "Build a repeatable end-to-end workflow for fast avatar creation to support VR/XR use cases.",
+    "contributions": [
+      "Used PiFUHD for high-resolution 3D human digitization from images",
+      "Rigged meshes via Mixamo for armatures/animation readiness",
+      "Iterating toward faster, repeatable workflow"
+    ],
+    "techStack": ["PiFUHD", "3D reconstruction", "Mesh processing", "Rigging", "Mixamo", "Virtual worlds"],
+    "outcomes": ["Working pipeline prototype (in progress)"],
+    "links": { "github": null, "demo": null, "paper": null },
+    "gallery": [
+      { "src": "/images/placeholder-happenstance-1.jpg", "alt": "Happenstance placeholder" }
+    ]
+  },
+  {
+    "id": "dl-assignments",
+    "title": "Deep Learning Coursework (EEE 598 Assignments 1–4)",
+    "category": "Coursework",
+    "status": "Completed (Coursework)",
+    "startDate": { "label": "Approx. 2024–2025 (EEE 598)", "precision": "approx" },
+    "location": "ASU (EEE 598)",
+    "summary": "A suite of deep learning implementations spanning classification, KANs vs MLP, EfficientNet fine-tuning, ViT, ResNet from scratch, GANs/diffusion, SIREN INRs, depth-based blur, and HPC benchmarking.",
+    "problem": "Develop reproducible deep learning workflows and evaluate models under constraints (data, compute, robustness).",
+    "contributions": [
+      "A1: Teachable Machine classifier + SOL A100 setup + PyTorch GPU fundamentals",
+      "A2: Perceptron + backprop from scratch; MLP vs KANs; EfficientNetV2-S on Flowers-102 + 2-GPU + Grad-CAM",
+      "A3: Perceptual losses; turbulence-robust features; ViT-B32 PV-fault classification; custom ResNet-36 + custom activation; comparisons",
+      "A4: GRU music gen; SIREN INRs; segmentation + depth-based lens blur; DCGAN/ProgGAN/diffusion + latent interpolation; A100 vs Gaudi benchmarking"
+    ],
+    "techStack": ["PyTorch", "ViT", "ResNet", "EfficientNetV2", "GANs", "Diffusion", "SIREN", "HPC (A100/Gaudi)", "SLURM", "Conda"],
+    "outcomes": ["Reports, visualizations, reproducible HPC workflows"],
+    "links": { "github": null, "demo": null, "paper": null },
+    "gallery": [
+      { "src": "/images/placeholder-dl-1.jpg", "alt": "Deep Learning assignments placeholder" }
+    ]
+  }
+]

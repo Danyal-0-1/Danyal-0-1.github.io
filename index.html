@@ -1,320 +1,292 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Danyal Khorami — Interactive AI/Media Portfolio</title>
-  <meta name="description" content="Interactive WebGL portfolio for Danyal Khorami — computer vision, motion capture, embodied AI, computational media." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="css/styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Danyal Khorami - Research Portfolio</title>
+  <meta name="description" content="Research portfolio for Danyal Khorami: computer vision, motion capture, embodied AI, and computational media." />
+  <link rel="icon" href="images/placeholder-mesquite-1.jpg" />
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
-  <div class="bg" aria-hidden="true">
-    <div class="bg__gradient"></div>
-    <div class="bg__grid"></div>
-  </div>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="shell topnav">
-    <div class="topnav__brand">
-      <div class="brand__mark" aria-hidden="true"></div>
-      <div class="brand__text">
-        <span class="brand__name">Danyal Khorami</span>
-        <span class="brand__role">MFA Media Arts · ASU '26</span>
+  <div class="webgl-root" aria-hidden="true">
+    <canvas id="webgl-canvas"></canvas>
+  </div>
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <div>
+          <span class="brand-name" data-profile-name>Loading...</span>
+          <span class="brand-subtitle" data-profile-program></span>
+        </div>
+      </div>
+      <nav class="nav" aria-label="Primary">
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#publications">Publications</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn-ghost" href="cv.pdf">Download CV</a>
+      </nav>
+      <div class="header-actions">
+        <div class="quality-toggle" role="group" aria-label="WebGL quality" data-quality-toggle>
+          <button type="button" data-quality="auto" aria-pressed="true">Auto</button>
+          <button type="button" data-quality="high" aria-pressed="false">High</button>
+          <button type="button" data-quality="low" aria-pressed="false">Low</button>
+        </div>
+        <button class="btn" type="button" data-open-chat>Ask</button>
       </div>
     </div>
-    <nav class="topnav__links" aria-label="Primary">
-      <a href="#projects">Projects</a>
-      <a href="#about">About</a>
-      <a href="#experience">Experiments</a>
-      <a href="#timeline">Timeline</a>
-      <a href="#contact">Contact</a>
-      <a class="pill" href="cv.html">Download CV</a>
-    </nav>
   </header>
 
-  <main id="main" class="shell">
+  <main id="main">
     <section id="hero" class="section hero">
-      <div class="hero__content">
-        <p class="eyebrow">Computer vision · Motion capture · Embodied AI</p>
-        <h1>
-          Building responsive systems that see, sense, and perform—
-          then turning them into media experiences.
-        </h1>
-        <p class="lede">
-          Danyal is a researcher and computational media artist preparing for PhD work in vision, motion capture, and embodied intelligence.
-          Currently finishing an MFA at Arizona State University and shipping real-time sensor fusion, XR pipelines, and installation work.
-        </p>
-        <div class="chips" id="researchChips"></div>
-        <div class="ctaRow">
-          <a class="btn" href="#projects">View research projects</a>
-          <a class="btn btn--ghost" href="cv.html">Download CV</a>
-        </div>
-        <div class="hero__meta">
-          <div>
-            <p class="mono">Education</p>
-            <p>ASU MFA (Interdisciplinary Media Arts), Tehran University of Art (M.A. Photography), UAST (B.A. Graphic Design)</p>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Research portfolio</p>
+          <h1 data-hero-title>Loading...</h1>
+          <p class="lede" data-hero-focus></p>
+          <div class="hero-cta">
+            <a class="btn" href="#projects">View Projects</a>
+            <a class="btn btn-ghost" href="cv.pdf">Download CV</a>
           </div>
-          <div>
-            <p class="mono">Research interests</p>
-            <p>Temporal perception models, wearable motion capture, sensor fusion & IoT, embodied AI, computational media.</p>
+          <div class="meta-grid">
+            <div>
+              <p class="meta-label">Location</p>
+              <p data-profile-location></p>
+            </div>
+            <div>
+              <p class="meta-label">Affiliations</p>
+              <p data-profile-affiliations></p>
+            </div>
           </div>
         </div>
-        <div class="portrait" aria-label="Portrait placeholder">
-          <div class="portrait__frame">
-            <div class="portrait__placeholder">Add your portrait</div>
+        <div class="hero-panel">
+          <div class="panel">
+            <p class="panel-title">Research interests</p>
+            <div class="tags" data-interests></div>
           </div>
-          <p class="mono">Placeholder portrait — replace with your image (first fold)</p>
-        </div>
-      </div>
-      <div class="hero__viz">
-        <div class="canvasShell">
-          <canvas id="heroCanvas" aria-label="Interactive AI robot"></canvas>
-          <div class="canvasShell__label">AI Guide · reacts to mouse + scroll</div>
-        </div>
-        <div class="hero__stat">
-          <div>
-            <p class="mono">Latency target</p>
-            <p>60fps render · adaptive quality · WebGL/Three.js</p>
+          <div class="panel">
+            <p class="panel-title">Core skills</p>
+            <div class="tags" data-skills></div>
           </div>
-          <div>
-            <p class="mono">Featured builds</p>
-            <p>Mesquite MoCap · To Wilt · Opuntia · Happenstance · TFT Forecasting</p>
+          <div class="panel">
+            <p class="panel-title">Featured focus</p>
+            <p class="lede" data-featured-focus></p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="about" class="section about">
-      <div class="section__hdr">
+    <section id="about" class="section">
+      <div class="container section-header">
         <div>
-          <p class="eyebrow">About + Research</p>
-          <h2>Rigorous pipelines with a media artist's sensibility.</h2>
-          <p class="lede">Combining computer vision, motion capture, and IoT to build embodied AI systems — then turning them into installations, XR assets, and live demos.</p>
+          <p class="eyebrow">About</p>
+          <h2>Research-first, systems-driven, and built for embodiment.</h2>
+          <p class="lede" data-about-copy></p>
         </div>
-        <div class="floating" aria-hidden="true" data-floating-shapes>
-          <div class="shape shape--orb"></div>
-          <div class="shape shape--prism"></div>
-          <div class="shape shape--ring"></div>
+        <div class="summary-card">
+          <p class="meta-label">Coursework</p>
+          <ul class="list" data-coursework></ul>
+        </div>
+      </div>
+      <div class="container about-grid">
+        <div class="panel">
+          <h3>Affiliations</h3>
+          <ul class="list" data-affiliations></ul>
+        </div>
+        <div class="panel">
+          <h3>Skills - Programming & Data</h3>
+          <div class="tags" data-skills-programming></div>
+        </div>
+        <div class="panel">
+          <h3>Skills - Embedded & Hardware</h3>
+          <div class="tags" data-skills-embedded></div>
+        </div>
+        <div class="panel">
+          <h3>Skills - Imaging / 3D / XR</h3>
+          <div class="tags" data-skills-imaging></div>
         </div>
       </div>
 
-      <div class="about__grid">
-        <article class="panel">
-          <h3>Bio</h3>
-          <p>
-            MFA candidate (Media Arts) at Arizona State University. Research centers on computer vision under motion and noise, synchronized sensing, and embodied interfaces. Previous work spans GANs/diffusion, custom activations, and neural rendering alongside low-cost IMU rigs and IoT telemetry.
-          </p>
-          <ul class="list">
-            <li>IndiaFOSS 2025 speaker — Mesquite MoCap (open-source IMU mocap)</li>
-            <li>Anderson Ranch Fellowship 2024 · ASU Tuition Award 2023–2026</li>
-            <li>Installations: multi-screen LLM dialogues, live-print telemetry, XR-ready avatars</li>
-          </ul>
-        </article>
-
-        <article class="panel">
-          <h3>Education timeline</h3>
-          <ul class="timeline">
-            <li>
-              <span class="mono">2026 (exp.)</span>
-              <div>
-                <strong>Arizona State University</strong>
-                <p>MFA Interdisciplinary Media Arts — computer vision, motion capture, embodied AI.</p>
-              </div>
-            </li>
-            <li>
-              <span class="mono">2023</span>
-              <div>
-                <strong>Tehran University of Art</strong>
-                <p>M.A. Photography (Media & Image Theory), GPA 3.98</p>
-              </div>
-            </li>
-            <li>
-              <span class="mono">2020</span>
-              <div>
-                <strong>University of Applied Science and Technology</strong>
-                <p>B.A. Graphic Design, GPA 3.86</p>
-              </div>
-            </li>
-          </ul>
-        </article>
-
-        <article class="panel panel--stack">
-          <h3>Skill constellation</h3>
-          <p>Hover or tap to spin the skill cloud. Tags are pulled into the 3D scene for subtle parallax.</p>
-          <div class="skillCloud" id="skillCloud" aria-label="Floating skills"></div>
-          <div class="chips chips--mono">
-            <span class="chip">PyTorch · ViT · GANs/Diffusion</span>
-            <span class="chip">ESP32-C3 · Sensor fusion</span>
-            <span class="chip">WebGL · GSAP</span>
-            <span class="chip">Blender · Mixamo · PiFUHD</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="projects" class="section projects">
-      <div class="section__hdr">
+      <div class="container lab" data-orbit-zone>
         <div>
-          <p class="eyebrow">Research Projects</p>
-          <h2>Six flagship builds in 3D space.</h2>
-          <p class="lede">Cards tilt in 3D; click to open modal galleries with stack, links, and detailed notes.</p>
+          <p class="eyebrow">Interactive lab</p>
+          <h3>Rotate the background simulation here.</h3>
+          <p class="lede">Orbit controls activate in this zone only. Scroll to exit and regain normal pointer behavior.</p>
         </div>
-        <div class="filters">
-          <label class="mono" for="filterType">Type</label>
-          <select id="filterType" aria-label="Filter by type">
-            <option value="all">All</option>
-            <option value="Research">Research</option>
-            <option value="Artistic">Artistic</option>
-            <option value="Hardware">Hardware</option>
-          </select>
-        </div>
+        <div class="lab-status" data-orbit-status>Orbit controls: off</div>
       </div>
-      <div class="projectGrid" id="projectGrid"></div>
     </section>
 
-    <section id="experience" class="section experience">
-      <div class="section__hdr">
+    <section id="projects" class="section">
+      <div class="container section-header">
         <div>
-          <p class="eyebrow">Interactive experiment</p>
-          <h2>Abstract motion capture lattice.</h2>
-          <p class="lede">Rotate/zoom the structure to see how data streams synchronize; represents IMU packets and neural feature flow.</p>
+          <p class="eyebrow">Projects</p>
+          <h2>Research, hardware, artistic, and coursework builds.</h2>
+          <p class="lede">Filter to explore; open any card for detailed contributions, outcomes, and galleries.</p>
         </div>
-        <div class="controls">
-          <button class="btn btn--ghost" data-reset-viz>Reset view</button>
-          <button class="btn" data-pause-viz>Pause</button>
-        </div>
+        <div class="filters" data-project-filters></div>
       </div>
-      <div class="experience__wrap">
-        <div class="canvasShell canvasShell--secondary">
-          <canvas id="vizCanvas" aria-label="Motion capture visualization"></canvas>
-          <div class="canvasShell__label">Drag to rotate · Scroll to zoom · Touch supported</div>
-        </div>
-        <div class="experience__text">
-          <h3>Methodology</h3>
-          <p>Nodes = IMU trackers + joints · edges = fusion relationships. Colors pulse based on simulated packet timing and confidence. Built with instanced meshes for performance.</p>
-          <ul class="list">
-            <li>Adaptive quality: device pixel ratio capped for mobile.</li>
-            <li>Fallback: degradable to 2D SVG if WebGL is unavailable.</li>
-            <li>Data hooks: drop in real BVH/CSV streams via <code>viz.updateFromStream</code>.</li>
-          </ul>
-        </div>
+      <div class="container">
+        <div class="project-grid" id="projectGrid"></div>
       </div>
     </section>
 
-    <section id="timeline" class="section timelineSection">
-      <div class="section__hdr">
-        <p class="eyebrow">Publications, exhibitions, talks</p>
-        <h2>Milestones with scroll-triggered reveals.</h2>
+    <section id="publications" class="section">
+      <div class="container section-header">
+        <div>
+          <p class="eyebrow">Publications</p>
+          <h2>Writing + research outputs.</h2>
+          <p class="lede">Status is displayed for works under review.</p>
+        </div>
       </div>
-      <ol class="vTimeline" aria-label="Timeline">
-        <li>
-          <div class="dot"></div>
-          <div>
-            <p class="mono">2025</p>
-            <strong>IndiaFOSS — Speaker</strong>
-            <p>Mesquite MoCap: open-source, real-time IMU motion capture with WebXR export.</p>
-          </div>
-        </li>
-        <li>
-          <div class="dot"></div>
-          <div>
-            <p class="mono">2024</p>
-            <strong>Anderson Ranch Arts Center Fellowship</strong>
-            <p>Residency focused on computational media workflows and embodied AI concepts.</p>
-          </div>
-        </li>
-        <li>
-          <div class="dot"></div>
-          <div>
-            <p class="mono">2024</p>
-            <strong>Exhibitions</strong>
-            <p>Fieldnotes (Harry Wood Gallery), Phoenix Transect, SPE Northwest Conference, Galbirt Prize Exhibition.</p>
-          </div>
-        </li>
-        <li>
-          <div class="dot"></div>
-          <div>
-            <p class="mono">2023</p>
-            <strong>Collections + Talks</strong>
-            <p>Northlight Gallery collection; artist talks at ASU Herberger Institute; prior exhibitions in Tehran and Arak.</p>
-          </div>
-        </li>
-      </ol>
+      <div class="container">
+        <ul class="publication-list" data-publications></ul>
+      </div>
     </section>
 
-    <section id="contact" class="section contact">
-      <div class="section__hdr">
+    <section id="timeline" class="section">
+      <div class="container section-header">
+        <div>
+          <p class="eyebrow">Talks - Exhibitions - Awards</p>
+          <h2>Selected milestones.</h2>
+          <p class="lede">A timeline of talks, exhibitions, and honors.</p>
+        </div>
+      </div>
+      <div class="container">
+        <div class="timeline" data-timeline></div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container section-header">
         <div>
           <p class="eyebrow">Contact</p>
-          <h2>Let's collaborate on embodied AI, vision, or installations.</h2>
-        </div>
-        <div class="chips chips--mono">
-          <span class="chip">Email</span>
-          <span class="chip">LinkedIn</span>
-          <span class="chip">GitHub</span>
+          <h2>Let's collaborate on embodied AI and computational media.</h2>
+          <p class="lede">Reach out for research collaborations, talks, or installations.</p>
         </div>
       </div>
-      <div class="contact__grid">
-        <div class="contact__cards">
-          <article class="contactCard">
-            <p class="mono">Email</p>
-            <a class="link" href="mailto:dkhorami@asu.edu">dkhorami@asu.edu</a>
-            <p>Best for research collaborations and speaking engagements.</p>
-          </article>
-          <article class="contactCard">
-            <p class="mono">LinkedIn</p>
-            <a class="link" href="https://www.linkedin.com/in/danyalkhorami" target="_blank" rel="noopener">linkedin.com/in/danyalkhorami</a>
-            <p>Professional updates, publications, and open roles.</p>
-          </article>
-          <article class="contactCard">
-            <p class="mono">GitHub</p>
-            <a class="link" href="https://github.com/Danyal-0-1" target="_blank" rel="noopener">github.com/Danyal-0-1</a>
-            <p>Code for motion capture, IoT telemetry, and experiments.</p>
-          </article>
+      <div class="container contact-grid">
+        <div class="panel">
+          <h3>Get in touch</h3>
+          <div class="contact-item">
+            <span>Email</span>
+            <a class="link" data-profile-email href="#">Loading...</a>
+          </div>
+          <div class="contact-item">
+            <span>Website</span>
+            <a class="link" data-profile-website href="#" target="_blank" rel="noopener">Loading...</a>
+          </div>
+          <div class="contact-item">
+            <span>Location</span>
+            <span data-profile-location></span>
+          </div>
         </div>
-        <form class="form" id="contactForm" novalidate>
-          <div class="form__row">
-            <label for="name">Name</label>
-            <input id="name" name="name" required placeholder="Your name" />
-          </div>
-          <div class="form__row">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" required placeholder="name@email.com" />
-          </div>
-          <div class="form__row">
-            <label for="message">Project idea</label>
-            <textarea id="message" name="message" rows="4" required placeholder="Tell me about the collaboration" ></textarea>
-          </div>
-          <p class="form__hint" id="formHint">Form validates locally; wire to your endpoint of choice.</p>
+        <form class="form" data-contact-form novalidate>
+          <label>
+            Name
+            <input name="name" type="text" required />
+          </label>
+          <label>
+            Email
+            <input name="email" type="email" required />
+          </label>
+          <label>
+            Message
+            <textarea name="message" rows="4" required></textarea>
+          </label>
+          <p class="form-hint" data-form-hint>Local validation only - connect to your backend when ready.</p>
           <button class="btn" type="submit">Send message</button>
         </form>
       </div>
     </section>
   </main>
 
-  <div class="modal" id="projectModal" aria-hidden="true" role="dialog" aria-modal="true">
-    <div class="modal__backdrop" data-close-modal></div>
-    <div class="modal__card" role="document">
-      <button class="modal__close" aria-label="Close" data-close-modal>×</button>
-      <div class="modal__content">
-        <div class="modal__media" id="modalGallery"></div>
-        <div class="modal__body">
-          <p class="pill pill--small" id="modalCategory"></p>
-          <h3 id="modalTitle"></h3>
-          <p class="lede" id="modalDescription"></p>
-          <div class="chips" id="modalTech"></div>
-          <div class="links" id="modalLinks"></div>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>(c) <span data-year></span> Danyal Khorami</span>
+      <a href="#top">Back to top</a>
+    </div>
+  </footer>
+
+  <div class="modal" id="projectModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modalTitle">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-card" role="document">
+      <button class="modal-close" type="button" aria-label="Close" data-close-modal>x</button>
+      <div class="modal-body">
+        <div class="modal-gallery" data-modal-gallery></div>
+        <div class="modal-content">
+          <p class="meta-label" data-modal-category></p>
+          <h3 id="modalTitle" data-modal-title></h3>
+          <p class="lede" data-modal-summary></p>
+          <div class="modal-meta">
+            <div>
+              <p class="meta-label">Start date</p>
+              <p data-modal-start></p>
+            </div>
+            <div>
+              <p class="meta-label">Status</p>
+              <p data-modal-status></p>
+            </div>
+            <div>
+              <p class="meta-label">Location</p>
+              <p data-modal-location></p>
+            </div>
+          </div>
+          <div class="modal-section">
+            <p class="meta-label">Problem</p>
+            <p data-modal-problem></p>
+          </div>
+          <div class="modal-section">
+            <p class="meta-label">Contributions</p>
+            <ul class="list" data-modal-contributions></ul>
+          </div>
+          <div class="modal-section">
+            <p class="meta-label">Tech stack</p>
+            <div class="tags" data-modal-tech></div>
+          </div>
+          <div class="modal-section">
+            <p class="meta-label">Outcomes</p>
+            <ul class="list" data-modal-outcomes></ul>
+          </div>
+          <div class="modal-section">
+            <p class="meta-label">Links</p>
+            <div class="modal-links" data-modal-links></div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <noscript>
-    <div class="noscript">This site uses WebGL + JavaScript for interactivity. Enable JS to see the 3D robot and animations.</div>
-  </noscript>
+  <aside class="drawer" id="assistantDrawer" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="assistantTitle">
+    <div class="drawer-backdrop" data-close-drawer></div>
+    <div class="drawer-panel" role="document">
+      <div class="drawer-header">
+        <div>
+          <p class="meta-label">AI Assistant</p>
+          <h3 id="assistantTitle">Ask about the portfolio</h3>
+        </div>
+        <button class="drawer-close" type="button" aria-label="Close" data-close-drawer>x</button>
+      </div>
+      <div class="drawer-body">
+        <div class="assistant-list" data-assistant-messages></div>
+        <div class="assistant-suggestions" data-assistant-suggestions></div>
+        <form class="assistant-form" data-assistant-form>
+          <label>
+            <span class="sr-only">Your question</span>
+            <input type="text" name="question" placeholder="Ask about projects, publications, or skills" required />
+          </label>
+          <button class="btn" type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+  </aside>
 
-  <script type="module" src="js/main.js"></script>
+  <script type="module" src="/src/main.ts"></script>
 </body>
 </html>

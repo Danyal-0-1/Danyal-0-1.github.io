@@ -1,0 +1,107 @@
+[
+  {
+    "type": "Publication",
+    "year": "Under review",
+    "title": "Mesquite MoCap: Democratizing Real-Time Motion Capture with Affordable, Open-Source, Networked IMU Hardware and WebXR",
+    "details": "Vanani, P., Patel, D., Khorami, D., et al. Manuscript under review (IEEE).",
+    "location": "IEEE (under review)"
+  },
+  {
+    "type": "Thesis",
+    "year": "2023",
+    "title": "A Study and Analysis on the Place of Photography in Eco-Art (Case Study: Edward Burtynsky)",
+    "details": "M.A. Thesis, Tehran University of Art.",
+    "location": "Tehran, Iran"
+  },
+  {
+    "type": "Talk",
+    "year": "Spring 2024",
+    "title": "Artist Talk",
+    "details": "ASU Herberger Institute for Design and the Arts.",
+    "location": "Tempe, AZ"
+  },
+  {
+    "type": "Talk",
+    "year": "Fall 2025",
+    "title": "Artist Talk",
+    "details": "ASU Herberger Institute for Design and the Arts.",
+    "location": "Tempe, AZ"
+  },
+  {
+    "type": "Exhibition",
+    "year": "2025",
+    "title": "Smile You Are on Camera",
+    "details": "Group exhibition, Northlight Gallery.",
+    "location": "Phoenix, AZ"
+  },
+  {
+    "type": "Exhibition",
+    "year": "2024",
+    "title": "SPE Northwest Conference: Renewal",
+    "details": "Group exhibition, Mt. Hood Community College.",
+    "location": "Oregon"
+  },
+  {
+    "type": "Exhibition",
+    "year": "2024",
+    "title": "Phoenix Transect",
+    "details": "Group exhibition, Northlight Gallery.",
+    "location": "Phoenix, AZ"
+  },
+  {
+    "type": "Exhibition",
+    "year": "2024",
+    "title": "Fieldnotes",
+    "details": "Group exhibition, Harry Wood Gallery (May 27–Aug 30, 2024; reception Aug 27).",
+    "location": "Tempe, AZ"
+  },
+  {
+    "type": "Exhibition",
+    "year": "2024",
+    "title": "Galbirt Prize Exhibition",
+    "details": "Group exhibition, Gallery 100.",
+    "location": "Phoenix, AZ"
+  },
+  {
+    "type": "Exhibition",
+    "year": "2023",
+    "title": "Group Exhibition",
+    "details": "Harry Wood Gallery.",
+    "location": "Phoenix, AZ"
+  },
+  {
+    "type": "Exhibition",
+    "year": "2022",
+    "title": "Group Exhibition",
+    "details": "Shames Gallery.",
+    "location": "Tehran, Iran"
+  },
+  {
+    "type": "Exhibition",
+    "year": "2022",
+    "title": "Group Exhibition",
+    "details": "Tehran University of Art Gallery.",
+    "location": "Tehran, Iran"
+  },
+  {
+    "type": "Award",
+    "year": "2024",
+    "title": "Anderson Ranch Arts Center Residency Fellowship",
+    "details": "Fellowship, Anderson Ranch Arts Center Residency.",
+    "location": "Colorado, USA"
+  },
+  {
+    "type": "Award",
+    "year": "2023–2026",
+    "title": "ASU Tuition Award",
+    "details": "Tuition Award, Arizona State University.",
+    "location": "Tempe, AZ"
+  },
+  {
+    "type": "Award",
+    "year": "2019",
+    "title": "Ranked 19th (National M.A. Entrance Exam, Photography)",
+    "details": "Ranked 19th among ~54,000 candidates; full tuition waiver.",
+    "location": "Iran"
+  }
+]

@@ -1,40 +1,53 @@
-# Interactive WebGL Portfolio — Danyal Khorami
+# Danyal Khorami - Research Portfolio (Vite + TS + Three.js)
 
-Three.js + GSAP-powered interactive portfolio (hero robot, particle field, project modals, and motion-capture visualization). No build step; all files are plain HTML/CSS/JS modules.
+Minimal, light, research-first portfolio with a subtle WebGL atmosphere. Built with Vite, TypeScript, Three.js, and GSAP (ScrollTrigger). All content is driven by JSON files in `src/content/`.
 
-## Structure
-- `index.html` — main page with hero robot, projects grid, timeline, contact form.
-- `css/styles.css` — design tokens, layout, responsive rules.
-- `js/scene.js` — Three.js setup per canvas (renderer, camera, lights, orbit controls).
-- `js/robot.js` — robot/avatar (GLTF if present, fallback low-poly rig) with pointer/scroll reactions.
-- `js/particles.js` — particle field + abstract network lattice for the experience section.
-- `js/projects.js` — project cards, modal system, filters, accessibility hooks.
-- `js/animations.js` — GSAP entrance + scroll-triggered animations.
-- `js/main.js` — wiring, skill chips, contact form validation, 3D init.
-- `assets/data/projects.json` — project data (titles, stacks, links, galleries).
-- `assets/models/` — place GLB/GLTF models here (robot, extra assets).
-- `assets/img/placeholder.svg` — placeholder for modals + cards.
+## Run locally
+```bash
+npm install
+npm run dev
+```
 
-## Add your portrait
-- Replace the hero placeholder (`.portrait__placeholder`) with your image. Easiest: add an `<img>` inside `.portrait__frame` in `index.html` or use CSS background.
-
-## Add or swap 3D models
-- Hero robot: drop a GLB at `assets/models/robot.glb`. The loader in `js/robot.js` will auto-use it; animations play the first clip if present.
-- Motion-capture viz: hook real data by piping your stream into `createNetworkLattice` (see `js/particles.js`) or replace with your own geometry.
-- Performance: textures/models are lazy-loaded; renderer caps devicePixelRatio to protect mobile fps.
-
-## Update project data
-- Edit `assets/data/projects.json` (or the fallback data inside `js/projects.js`).
-  - `type` supports filters: `Research`, `Artistic`, `Hardware`.
-  - `gallery` accepts image URLs; missing images show a placeholder.
-  - `links` array renders as modal buttons.
-- Cards support keyboard (Enter/Space) and click; modal can be dismissed with Esc or the backdrop.
+## Build
+```bash
+npm run build
+npm run preview
+```
 
 ## Deploy to GitHub Pages
-1. Push these files to your repo root.
-2. In GitHub → Settings → Pages, set Source to `main` (root).
-3. (Optional) Add a custom domain by creating `CNAME` and updating DNS.
+1. Build the site:
+   ```bash
+   npm run build
+   ```
+2. Deploy the `dist/` folder using GitHub Pages.
+3. If your repo is not at the root domain, adjust `base` in `vite.config.ts`:
+   - For `https://username.github.io/repo-name/` set `base: '/repo-name/'`.
+   - For custom domain or root, keep `base: './'`.
+
+## Edit content (JSON-driven)
+All UI text is rendered from JSON files. Update these and reload:
+- `src/content/profile.json`
+- `src/content/projects.json`
+- `src/content/timeline.json`
+
+## WebGL, quality, and fallbacks
+- Full-screen WebGL canvas sits behind the DOM (`#webgl-canvas`).
+- If WebGL is unavailable, the site shows a static gradient/noise background.
+- `prefers-reduced-motion` disables heavy animation and postprocessing.
+- Quality toggle in the header:
+  - **Auto** adapts pixel ratio based on frame time.
+  - **High** enables subtle bloom/film.
+  - **Low** disables expensive passes and reduces density.
+
+## Images and CV
+- Placeholder images live in `public/images/`.
+- CV placeholder is `public/cv.pdf` (replace with your PDF).
+
+## Plug in a real LLM (optional)
+- The assistant is local-only and uses keyword scoring in `src/ai/assistant.ts`.
+- To connect a real model later, update `src/ai/client.ts` to call your API and read keys from environment variables via Vite (`import.meta.env`).
+- Never commit API keys to the repo.
 
 ## Notes
-- No phone number is stored anywhere; contact channels are email/LinkedIn/GitHub.
-- If WebGL is unavailable, the site gracefully shows static content (hero fallback message).
+- No CDN runtime imports. All dependencies are installed via npm.
+- The site is single-page, accessible, and designed for high readability.
