@@ -15,14 +15,12 @@ npm run preview
 ```
 
 ## Deploy to GitHub Pages
-1. Build the site:
-   ```bash
-   npm run build
-   ```
-2. Deploy the `dist/` folder using GitHub Pages.
+1. This repo includes a GitHub Actions workflow (`.github/workflows/deploy.yml`) that builds and deploys `dist/` to GitHub Pages.
+2. In GitHub → Settings → Pages, set **Source** to **GitHub Actions**.
 3. If your repo is not at the root domain, adjust `base` in `vite.config.ts`:
    - For `https://username.github.io/repo-name/` set `base: '/repo-name/'`.
    - For custom domain or root, keep `base: './'`.
+4. The custom domain file is in `public/CNAME` and is copied on build.
 
 ## Edit content (JSON-driven)
 All UI text is rendered from JSON files. Update these and reload:
